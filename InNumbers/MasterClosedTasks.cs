@@ -125,23 +125,22 @@ namespace InNumbers
         //    }
         //}
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+    
 
-       
+        //public class ComboboxItem
+        //{
+        //    public string Text { get; set; }
+        //    public object Value { get; set; }
 
-        public class ComboboxItem
-        {
-            public string Text { get; set; }
-            public object Value { get; set; }
-
-            public override string ToString()
-            {
-                return Text;
-            }
-        }
+        //    public override string ToString()
+        //    {
+        //        return Text;
+        //    }
+        //}
 
         //private void txtWIPBox_TextChanged(object sender, EventArgs e)
         //{

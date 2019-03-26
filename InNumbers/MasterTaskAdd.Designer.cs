@@ -106,7 +106,7 @@
             this.cmbTask.Name = "cmbTask";
             this.cmbTask.Size = new System.Drawing.Size(523, 33);
             this.cmbTask.TabIndex = 8;
-            this.cmbTask.SelectedIndexChanged += new System.EventHandler(this.cmbTask_SelectedIndexChanged);
+            this.cmbTask.SelectedIndexChanged += new System.EventHandler(this.CmbTask_SelectedIndexChanged);
             // 
             // label6
             // 
@@ -212,7 +212,7 @@
             this.btnAddTask.TabIndex = 24;
             this.btnAddTask.Text = "Add Task";
             this.btnAddTask.UseVisualStyleBackColor = true;
-            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
+            this.btnAddTask.Click += new System.EventHandler(this.BtnAddTask_Click);
             // 
             // btnCancelTask
             // 
@@ -223,7 +223,7 @@
             this.btnCancelTask.TabIndex = 25;
             this.btnCancelTask.Text = "Cancel";
             this.btnCancelTask.UseVisualStyleBackColor = true;
-            this.btnCancelTask.Click += new System.EventHandler(this.btnCancelTask_Click);
+            this.btnCancelTask.Click += new System.EventHandler(this.BtnCancelTask_Click);
             // 
             // lblCustomTaskLabel
             // 

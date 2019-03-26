@@ -173,12 +173,12 @@ namespace InNumbers
             }
         }
 
-        private void cmbEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
             InitData();
         }
 
-        private void btnCancelTask_Click(object sender, EventArgs e)
+        private void BtnCancelTask_Click(object sender, EventArgs e)
         {
             this.Close();
         }

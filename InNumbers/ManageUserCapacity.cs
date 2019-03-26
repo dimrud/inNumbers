@@ -55,7 +55,7 @@ namespace InNumbers
             }
         }
 
-        private void btnAddCapacity_Click(object sender, EventArgs e)
+        private void BtnAddCapacity_Click(object sender, EventArgs e)
         {
             if (cmbEmployee.SelectedIndex < 1)
             {
@@ -98,12 +98,12 @@ namespace InNumbers
             }
         }
 
-        private void cmbEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
             InitGrid();
         }
 
-        private void btnDeleteCapacity_Click(object sender, EventArgs e)
+        private void BtnDeleteCapacity_Click(object sender, EventArgs e)
         {
             if (dgwDaysOff.SelectedRows.Count == 0)
             {

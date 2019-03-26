@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace InNumbers
@@ -88,7 +87,7 @@ namespace InNumbers
             #endregion
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
         {
             dgwEmployeeTasks.ClearSelection();
             string searchValue = txtSearchValue.Text;
@@ -126,7 +125,7 @@ namespace InNumbers
             Application.Exit();
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void BtnEdit_Click(object sender, EventArgs e)
         {
             if (dgwEmployeeTasks.SelectedRows.Count == 0)
             {
@@ -152,7 +151,7 @@ namespace InNumbers
             LoadData();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
             var confirmResult = MessageBox.Show("Are you sure to exit ??",
                                   "Confirm Exit!!",

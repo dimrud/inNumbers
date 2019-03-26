@@ -148,13 +148,13 @@ namespace InNumbers
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void BtnCancel_Click(object sender, EventArgs e)
         {
             _parent.ReloadData();
             this.Close();
         }
 
-        private void btnConfirm_Click(object sender, EventArgs e)
+        private void BtnConfirm_Click(object sender, EventArgs e)
         {
             OleDbCommand cmd = null;
             try
@@ -212,7 +212,7 @@ namespace InNumbers
         //    lblVariance.Text = variance.ToString();
         //}
 
-        private void txtHoursBudgeted_TextChanged(object sender, EventArgs e)
+        private void TxtHoursBudgeted_TextChanged(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtHoursBudgeted.Text))
             {
@@ -229,31 +229,27 @@ namespace InNumbers
         }
 
 
-        private void btnCancel_MouseLeave(object sender, EventArgs e)
+        private void BtnCancel_MouseLeave(object sender, EventArgs e)
         {
             isClosing = false;
         }
 
-        private void btnCancel_MouseHover(object sender, EventArgs e)
+        private void BtnCancel_MouseHover(object sender, EventArgs e)
         {
             isClosing = true;
         }
 
-        private void txtRevisionDate_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void TxtRevisionDate_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             if (txtRevisionDate.Text == "" || isClosing) return;
 
-            DateTime rs;
             CultureInfo ci = new CultureInfo("en-IE");
 
-            if (!DateTime.TryParseExact(txtRevisionDate.Text, "MM/dd/yyyy", ci, DateTimeStyles.None, out rs))
-
+            if (!DateTime.TryParseExact(txtRevisionDate.Text, "MM/dd/yyyy", ci, DateTimeStyles.None, out DateTime rs))
             {
                 MessageBox.Show("Revision date should be in format MM/DD/YYYY", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Cancel = true;
             }
         }
-
-
     }
 }

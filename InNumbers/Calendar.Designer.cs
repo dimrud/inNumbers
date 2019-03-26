@@ -1511,7 +1511,7 @@
             this.cmbEmployee.Name = "cmbEmployee";
             this.cmbEmployee.Size = new System.Drawing.Size(448, 33);
             this.cmbEmployee.TabIndex = 27;
-            this.cmbEmployee.SelectedIndexChanged += new System.EventHandler(this.cmbEmployee_SelectedIndexChanged);
+            this.cmbEmployee.SelectedIndexChanged += new System.EventHandler(this.CmbEmployee_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -1532,7 +1532,7 @@
             this.btnCancelTask.TabIndex = 28;
             this.btnCancelTask.Text = "Close";
             this.btnCancelTask.UseVisualStyleBackColor = true;
-            this.btnCancelTask.Click += new System.EventHandler(this.btnCancelTask_Click);
+            this.btnCancelTask.Click += new System.EventHandler(this.BtnCancelTask_Click);
             // 
             // Calendar
             // 

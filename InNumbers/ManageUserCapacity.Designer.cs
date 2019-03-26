@@ -57,7 +57,7 @@
             this.cmbEmployee.Name = "cmbEmployee";
             this.cmbEmployee.Size = new System.Drawing.Size(448, 33);
             this.cmbEmployee.TabIndex = 1;
-            this.cmbEmployee.SelectedIndexChanged += new System.EventHandler(this.cmbEmployee_SelectedIndexChanged);
+            this.cmbEmployee.SelectedIndexChanged += new System.EventHandler(this.CmbEmployee_SelectedIndexChanged);
             // 
             // monthCalendar1
             // 
@@ -95,7 +95,7 @@
             this.btnDeleteCapacity.TabIndex = 5;
             this.btnDeleteCapacity.Text = "Delete Date";
             this.btnDeleteCapacity.UseVisualStyleBackColor = true;
-            this.btnDeleteCapacity.Click += new System.EventHandler(this.btnDeleteCapacity_Click);
+            this.btnDeleteCapacity.Click += new System.EventHandler(this.BtnDeleteCapacity_Click);
             // 
             // btnAddCapacity
             // 
@@ -106,7 +106,7 @@
             this.btnAddCapacity.TabIndex = 6;
             this.btnAddCapacity.Text = "Select Date";
             this.btnAddCapacity.UseVisualStyleBackColor = true;
-            this.btnAddCapacity.Click += new System.EventHandler(this.btnAddCapacity_Click);
+            this.btnAddCapacity.Click += new System.EventHandler(this.BtnAddCapacity_Click);
             // 
             // label3
             // 

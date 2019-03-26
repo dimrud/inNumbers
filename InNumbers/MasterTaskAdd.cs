@@ -4,14 +4,12 @@ using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
-
 namespace InNumbers
 {
     public partial class MasterTaskAdd : Form
     {
         private Master _parent = null;
         Dictionary<int, string> companiesWithOriginalTrackId = new Dictionary<int, string>();
-
 
         public MasterTaskAdd(Master parent)
         {
@@ -68,13 +66,13 @@ namespace InNumbers
             }
         }
 
-        private void btnCancelTask_Click(object sender, EventArgs e)
+        private void BtnCancelTask_Click(object sender, EventArgs e)
         {
             _parent.ReloadData();
             this.Close();
         }
 
-        private void btnAddTask_Click(object sender, EventArgs e)
+        private void BtnAddTask_Click(object sender, EventArgs e)
         {
             string errorMessage = string.Empty;
             //Validate Input
@@ -151,7 +149,7 @@ namespace InNumbers
             }
         }
 
-        private void cmbTask_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmbTask_SelectedIndexChanged(object sender, EventArgs e)
         {
             //If custom showadditional field for custome taks description
             if (cmbTask.SelectedItem.ToString() == "Custom")

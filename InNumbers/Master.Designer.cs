@@ -41,7 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblTotalRows = new System.Windows.Forms.Label();
             this.btnCalendar = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnManageCapacity = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMasterTasks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,7 +65,7 @@
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit Task";
             this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.btnEdit.Click += new System.EventHandler(this.BtnEdit_Click);
             // 
             // btnClose
             // 
@@ -76,7 +76,7 @@
             this.btnClose.TabIndex = 2;
             this.btnClose.Text = "Close Task";
             this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // label1
             // 
@@ -105,7 +105,7 @@
             this.btnSearch.TabIndex = 5;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // btnAdd
             // 
@@ -116,7 +116,7 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add Task";
             this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnShowClosed
             // 
@@ -127,7 +127,7 @@
             this.btnShowClosed.TabIndex = 7;
             this.btnShowClosed.Text = "Show Closed Tasks";
             this.btnShowClosed.UseVisualStyleBackColor = true;
-            this.btnShowClosed.Click += new System.EventHandler(this.btnShowClosed_Click);
+            this.btnShowClosed.Click += new System.EventHandler(this.BtnShowClosed_Click);
             // 
             // btnManageUsers
             // 
@@ -138,7 +138,7 @@
             this.btnManageUsers.TabIndex = 8;
             this.btnManageUsers.Text = "Manage Users";
             this.btnManageUsers.UseVisualStyleBackColor = true;
-            this.btnManageUsers.Click += new System.EventHandler(this.btnManageUsers_Click);
+            this.btnManageUsers.Click += new System.EventHandler(this.BtnManageUsers_Click);
             // 
             // btnExit
             // 
@@ -149,7 +149,7 @@
             this.btnExit.TabIndex = 9;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
             // label2
             // 
@@ -180,18 +180,18 @@
             this.btnCalendar.TabIndex = 12;
             this.btnCalendar.Text = "Calendar";
             this.btnCalendar.UseVisualStyleBackColor = true;
-            this.btnCalendar.Click += new System.EventHandler(this.btnCalendar_Click);
+            this.btnCalendar.Click += new System.EventHandler(this.BtnCalendar_Click);
             // 
-            // button1
+            // btnManageCapacity
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1389, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(213, 38);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Manage Capacity";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnManageCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageCapacity.Location = new System.Drawing.Point(1389, 26);
+            this.btnManageCapacity.Name = "btnManageCapacity";
+            this.btnManageCapacity.Size = new System.Drawing.Size(213, 38);
+            this.btnManageCapacity.TabIndex = 13;
+            this.btnManageCapacity.Text = "Manage Capacity";
+            this.btnManageCapacity.UseVisualStyleBackColor = true;
+            this.btnManageCapacity.Click += new System.EventHandler(this.BtnManageCapacity_Click);
             // 
             // Master
             // 
@@ -199,7 +199,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1898, 634);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnManageCapacity);
             this.Controls.Add(this.btnCalendar);
             this.Controls.Add(this.lblTotalRows);
             this.Controls.Add(this.label2);
@@ -240,6 +240,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblTotalRows;
         private System.Windows.Forms.Button btnCalendar;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnManageCapacity;
     }
 }

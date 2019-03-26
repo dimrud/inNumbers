@@ -53,7 +53,7 @@
             this.btnShow.TabIndex = 2;
             this.btnShow.Text = "Show Task";
             this.btnShow.UseVisualStyleBackColor = true;
-            this.btnShow.Click += new System.EventHandler(this.btnShow_Click);
+            this.btnShow.Click += new System.EventHandler(this.BtnShow_Click);
             // 
             // ClosedTasks
             // 

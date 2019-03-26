@@ -86,9 +86,9 @@
             this.btnCancel.TabIndex = 0;
             this.btnCancel.Text = "Cancel ";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
-            this.btnCancel.MouseHover += new System.EventHandler(this.btnCancel_MouseHover);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.BtnCancel_MouseLeave);
+            this.btnCancel.MouseHover += new System.EventHandler(this.BtnCancel_MouseHover);
             // 
             // btnConfirm
             // 
@@ -99,7 +99,7 @@
             this.btnConfirm.TabIndex = 1;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // label1
             // 
@@ -473,7 +473,7 @@
             this.txtHoursBudgeted.Name = "txtHoursBudgeted";
             this.txtHoursBudgeted.Size = new System.Drawing.Size(100, 30);
             this.txtHoursBudgeted.TabIndex = 75;
-            this.txtHoursBudgeted.TextChanged += new System.EventHandler(this.txtHoursBudgeted_TextChanged);
+            this.txtHoursBudgeted.TextChanged += new System.EventHandler(this.TxtHoursBudgeted_TextChanged);
             // 
             // label14
             // 
@@ -503,7 +503,7 @@
             this.txtRevisionDate.Name = "txtRevisionDate";
             this.txtRevisionDate.Size = new System.Drawing.Size(125, 30);
             this.txtRevisionDate.TabIndex = 126;
-            this.txtRevisionDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtRevisionDate_Validating);
+            this.txtRevisionDate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtRevisionDate_Validating);
             // 
             // label17
             // 

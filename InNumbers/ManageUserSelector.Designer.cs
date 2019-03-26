@@ -49,7 +49,7 @@
             this.btnCapacity.TabIndex = 1;
             this.btnCapacity.Text = "Manage Capacity";
             this.btnCapacity.UseVisualStyleBackColor = true;
-            this.btnCapacity.Click += new System.EventHandler(this.btnCapacity_Click);
+            this.btnCapacity.Click += new System.EventHandler(this.BtnCapacity_Click);
             // 
             // ManageUserSelector
             // 

@@ -335,7 +335,7 @@
             this.btnConfirm.TabIndex = 77;
             this.btnConfirm.Text = "Confirm";
             this.btnConfirm.UseVisualStyleBackColor = true;
-            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            this.btnConfirm.Click += new System.EventHandler(this.BtnConfirm_Click);
             // 
             // btnCancel
             // 
@@ -346,9 +346,9 @@
             this.btnCancel.TabIndex = 76;
             this.btnCancel.Text = "Cancel ";
             this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            this.btnCancel.MouseLeave += new System.EventHandler(this.btnCancel_MouseLeave);
-            this.btnCancel.MouseHover += new System.EventHandler(this.btnCancel_MouseHover);
+            this.btnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.btnCancel.MouseLeave += new System.EventHandler(this.BtnCancel_MouseLeave);
+            this.btnCancel.MouseHover += new System.EventHandler(this.BtnCancel_MouseHover);
             // 
             // lblHrsBudgetedValue
             // 
@@ -368,7 +368,7 @@
             this.txtWIPHoursValue.Name = "txtWIPHoursValue";
             this.txtWIPHoursValue.Size = new System.Drawing.Size(100, 30);
             this.txtWIPHoursValue.TabIndex = 116;
-            this.txtWIPHoursValue.TextChanged += new System.EventHandler(this.txtWIPHoursValue_TextChanged);
+            this.txtWIPHoursValue.TextChanged += new System.EventHandler(this.TxtWIPHoursValue_TextChanged);
             // 
             // lblScheduleDateValue
             // 
@@ -388,7 +388,7 @@
             this.txtHoursToComplete.Name = "txtHoursToComplete";
             this.txtHoursToComplete.Size = new System.Drawing.Size(125, 30);
             this.txtHoursToComplete.TabIndex = 121;
-            this.txtHoursToComplete.Validating += new System.ComponentModel.CancelEventHandler(this.txtOSRequestSent_Validating);
+            this.txtHoursToComplete.Validating += new System.ComponentModel.CancelEventHandler(this.TxtOSRequestSent_Validating);
             // 
             // cmbAskPartner
             // 
@@ -407,7 +407,7 @@
             this.txtOSRequestSent.Name = "txtOSRequestSent";
             this.txtOSRequestSent.Size = new System.Drawing.Size(125, 30);
             this.txtOSRequestSent.TabIndex = 124;
-            this.txtOSRequestSent.Validating += new System.ComponentModel.CancelEventHandler(this.txtOSRequestSent_Validating);
+            this.txtOSRequestSent.Validating += new System.ComponentModel.CancelEventHandler(this.TxtOSRequestSent_Validating);
             // 
             // label4
             // 
@@ -427,7 +427,7 @@
             this.txtFUDate.Name = "txtFUDate";
             this.txtFUDate.Size = new System.Drawing.Size(125, 30);
             this.txtFUDate.TabIndex = 126;
-            this.txtFUDate.Validating += new System.ComponentModel.CancelEventHandler(this.txtFUDate_Validating);
+            this.txtFUDate.Validating += new System.ComponentModel.CancelEventHandler(this.TxtFUDate_Validating);
             // 
             // label6
             // 
@@ -447,7 +447,7 @@
             this.txtOSInfoReceived.Name = "txtOSInfoReceived";
             this.txtOSInfoReceived.Size = new System.Drawing.Size(125, 30);
             this.txtOSInfoReceived.TabIndex = 128;
-            this.txtOSInfoReceived.Validating += new System.ComponentModel.CancelEventHandler(this.txtOSInfoReceived_Validating);
+            this.txtOSInfoReceived.Validating += new System.ComponentModel.CancelEventHandler(this.TxtOSInfoReceived_Validating);
             // 
             // label14
             // 
@@ -497,7 +497,7 @@
             this.label21.Size = new System.Drawing.Size(104, 17);
             this.label21.TabIndex = 134;
             this.label21.Text = "(MM/DD/YYYY)";
-            this.label21.Validating += new System.ComponentModel.CancelEventHandler(this.txtReady2ndReview_Validating);
+            this.label21.Validating += new System.ComponentModel.CancelEventHandler(this.TxtReady2ndReview_Validating);
             // 
             // txtReady2ndReview
             // 
@@ -507,7 +507,7 @@
             this.txtReady2ndReview.Name = "txtReady2ndReview";
             this.txtReady2ndReview.Size = new System.Drawing.Size(125, 30);
             this.txtReady2ndReview.TabIndex = 133;
-            this.txtReady2ndReview.Validating += new System.ComponentModel.CancelEventHandler(this.txtReady2ndReview_Validating);
+            this.txtReady2ndReview.Validating += new System.ComponentModel.CancelEventHandler(this.TxtReady2ndReview_Validating);
             // 
             // lblDateInValue
             // 

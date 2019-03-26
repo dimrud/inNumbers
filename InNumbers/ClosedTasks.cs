@@ -70,7 +70,7 @@ namespace InNumbers
             #endregion
         }
 
-        private void btnShow_Click(object sender, EventArgs e)
+        private void BtnShow_Click(object sender, EventArgs e)
         {
             if (dgwMasterTasks.SelectedRows.Count == 0)
             {

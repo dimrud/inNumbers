@@ -167,10 +167,11 @@ namespace InNumbers
 
             foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE Role = 'Employee' AND isWorking = true").Rows)
             {
-                ComboboxItem item = new ComboboxItem();
-
-                item.Text = itemRow["FirstName"] + " " + itemRow["LastName"];
-                item.Value = itemRow["ClientTrackId"];
+                ComboboxItem item = new ComboboxItem
+                {
+                    Text = itemRow["FirstName"] + " " + itemRow["LastName"],
+                    Value = itemRow["ClientTrackId"]
+                };
 
                 cb.Items.Add(item);
             }
@@ -187,10 +188,11 @@ namespace InNumbers
 
             foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE Role = 'Partner' AND isWorking = true").Rows)
             {
-                ComboboxItem item = new ComboboxItem();
-
-                item.Text = itemRow["FirstName"] + " " + itemRow["LastName"];
-                item.Value = itemRow["ClientTrackId"];
+                ComboboxItem item = new ComboboxItem
+                {
+                    Text = itemRow["FirstName"] + " " + itemRow["LastName"],
+                    Value = itemRow["ClientTrackId"]
+                };
 
                 cb.Items.Add(item);
             }

@@ -17,7 +17,7 @@ namespace InNumbers
             InitializeComponent();
         }
 
-        private void btnCapacity_Click(object sender, EventArgs e)
+        private void BtnCapacity_Click(object sender, EventArgs e)
         {
 
 

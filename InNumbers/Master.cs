@@ -110,7 +110,7 @@ namespace InNumbers
 
         }
 
-        private void btnEdit_Click(object sender, EventArgs e)
+        private void BtnEdit_Click(object sender, EventArgs e)
         {
             if (dgwMasterTasks.SelectedRows.Count == 0)
             {
@@ -130,7 +130,7 @@ namespace InNumbers
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void BtnClose_Click(object sender, EventArgs e)
         {
             if (dgwMasterTasks.SelectedRows.Count == 0)
             {
@@ -161,7 +161,7 @@ namespace InNumbers
             }
         }
 
-        private void btnSearch_Click(object sender, EventArgs e)
+        private void BtnSearch_Click(object sender, EventArgs e)
         {
             dgwMasterTasks.ClearSelection();
             string searchValue = txtSearchValue.Text;
@@ -194,7 +194,7 @@ namespace InNumbers
             }
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             // MasterTasks mt = new MasterTasks(this, -1);
             // mt.ShowDialog();
@@ -212,34 +212,34 @@ namespace InNumbers
             LoadData();
         }
 
-        private void btnShowClosed_Click(object sender, EventArgs e)
+        private void BtnShowClosed_Click(object sender, EventArgs e)
         {
             ClosedTasks ct = new ClosedTasks();
             ct.ShowDialog();
         }
 
-        private void btnManageUsers_Click(object sender, EventArgs e)
+        private void BtnManageUsers_Click(object sender, EventArgs e)
         {
             ManageUserSelector us = new ManageUserSelector();
             us.ShowDialog();
         }
 
-        private void btnExit_Click(object sender, EventArgs e)
+        private void BtnExit_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Are you sure to exit ??",
+            DialogResult confirmResult = MessageBox.Show("Are you sure to exit ??",
                                     "Confirm Exit!!",
                                     MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
                 Application.Exit();
         }
 
-        private void btnCalendar_Click(object sender, EventArgs e)
+        private void BtnCalendar_Click(object sender, EventArgs e)
         {
             Calendar ct = new Calendar();
             ct.ShowDialog();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnManageCapacity_Click(object sender, EventArgs e)
         {
             ManageUserCapacity dlg = new ManageUserCapacity();
             dlg.ShowDialog();

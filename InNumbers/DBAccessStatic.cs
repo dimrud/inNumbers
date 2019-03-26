@@ -41,10 +41,11 @@ namespace InNumbers
         public static DataSet DBSet(string Command, string ConnectionStrring, params SqlParameter[] SQLParams)
         {
             SqlConnection Connection = new SqlConnection(ConnectionStrring);
-            SqlCommand command1 = new SqlCommand(Command);
-
-            command1.CommandTimeout = 0;
-            command1.Connection = Connection;
+            SqlCommand command1 = new SqlCommand(Command)
+            {
+                CommandTimeout = 0,
+                Connection = Connection
+            };
             DataSet myDataSet = new DataSet();
             try
             {
@@ -55,7 +56,7 @@ namespace InNumbers
             }
             catch (Exception e)
             {
-                //  ErrorHandler.ProcessError(e);
+                //ErrorHandler.ProcessError(e);
             }
             finally
             {
@@ -194,7 +195,7 @@ namespace InNumbers
             return Affected;
         }
 
-        public static string isStringType(Type ColumnType)
+        public static string IsStringType(Type ColumnType)
         {
             switch (ColumnType.Name)
             {
