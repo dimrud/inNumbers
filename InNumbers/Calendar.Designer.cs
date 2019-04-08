@@ -261,10 +261,10 @@
             // panel1_title
             // 
             this.panel1_title.AutoSize = true;
-            this.panel1_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1_title.Location = new System.Drawing.Point(20, 76);
             this.panel1_title.Name = "panel1_title";
-            this.panel1_title.Size = new System.Drawing.Size(236, 25);
+            this.panel1_title.Size = new System.Drawing.Size(238, 22);
             this.panel1_title.TabIndex = 1;
             this.panel1_title.Text = "Thursday, March 08 2018";
             // 
@@ -696,50 +696,50 @@
             // panel2_title
             // 
             this.panel2_title.AutoSize = true;
-            this.panel2_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2_title.Location = new System.Drawing.Point(272, 76);
             this.panel2_title.Name = "panel2_title";
-            this.panel2_title.Size = new System.Drawing.Size(236, 25);
+            this.panel2_title.Size = new System.Drawing.Size(238, 22);
             this.panel2_title.TabIndex = 6;
             this.panel2_title.Text = "Thursday, March 08 2018";
             // 
             // panel3_title
             // 
             this.panel3_title.AutoSize = true;
-            this.panel3_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3_title.Location = new System.Drawing.Point(529, 76);
             this.panel3_title.Name = "panel3_title";
-            this.panel3_title.Size = new System.Drawing.Size(236, 25);
+            this.panel3_title.Size = new System.Drawing.Size(238, 22);
             this.panel3_title.TabIndex = 7;
             this.panel3_title.Text = "Thursday, March 08 2018";
             // 
             // panel4_title
             // 
             this.panel4_title.AutoSize = true;
-            this.panel4_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel4_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4_title.Location = new System.Drawing.Point(788, 76);
             this.panel4_title.Name = "panel4_title";
-            this.panel4_title.Size = new System.Drawing.Size(236, 25);
+            this.panel4_title.Size = new System.Drawing.Size(238, 22);
             this.panel4_title.TabIndex = 8;
             this.panel4_title.Text = "Thursday, March 08 2018";
             // 
             // panel5_title
             // 
             this.panel5_title.AutoSize = true;
-            this.panel5_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5_title.Location = new System.Drawing.Point(1043, 76);
             this.panel5_title.Name = "panel5_title";
-            this.panel5_title.Size = new System.Drawing.Size(236, 25);
+            this.panel5_title.Size = new System.Drawing.Size(238, 22);
             this.panel5_title.TabIndex = 9;
             this.panel5_title.Text = "Thursday, March 08 2018";
             // 
             // panel6_title
             // 
             this.panel6_title.AutoSize = true;
-            this.panel6_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6_title.Location = new System.Drawing.Point(1292, 76);
             this.panel6_title.Name = "panel6_title";
-            this.panel6_title.Size = new System.Drawing.Size(236, 25);
+            this.panel6_title.Size = new System.Drawing.Size(238, 22);
             this.panel6_title.TabIndex = 10;
             this.panel6_title.Text = "Thursday, March 08 2018";
             // 
@@ -831,20 +831,20 @@
             // panel7_title
             // 
             this.panel7_title.AutoSize = true;
-            this.panel7_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel7_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel7_title.Location = new System.Drawing.Point(1559, 76);
             this.panel7_title.Name = "panel7_title";
-            this.panel7_title.Size = new System.Drawing.Size(236, 25);
+            this.panel7_title.Size = new System.Drawing.Size(238, 22);
             this.panel7_title.TabIndex = 11;
             this.panel7_title.Text = "Thursday, March 08 2018";
             // 
             // panel8_title
             // 
             this.panel8_title.AutoSize = true;
-            this.panel8_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel8_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel8_title.Location = new System.Drawing.Point(20, 360);
             this.panel8_title.Name = "panel8_title";
-            this.panel8_title.Size = new System.Drawing.Size(236, 25);
+            this.panel8_title.Size = new System.Drawing.Size(238, 22);
             this.panel8_title.TabIndex = 13;
             this.panel8_title.Text = "Thursday, March 08 2018";
             // 
@@ -936,10 +936,10 @@
             // panel9_title
             // 
             this.panel9_title.AutoSize = true;
-            this.panel9_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel9_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel9_title.Location = new System.Drawing.Point(278, 360);
             this.panel9_title.Name = "panel9_title";
-            this.panel9_title.Size = new System.Drawing.Size(236, 25);
+            this.panel9_title.Size = new System.Drawing.Size(238, 22);
             this.panel9_title.TabIndex = 15;
             this.panel9_title.Text = "Thursday, March 08 2018";
             // 
@@ -1031,10 +1031,10 @@
             // panel10_title
             // 
             this.panel10_title.AutoSize = true;
-            this.panel10_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel10_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel10_title.Location = new System.Drawing.Point(536, 360);
             this.panel10_title.Name = "panel10_title";
-            this.panel10_title.Size = new System.Drawing.Size(236, 25);
+            this.panel10_title.Size = new System.Drawing.Size(238, 22);
             this.panel10_title.TabIndex = 17;
             this.panel10_title.Text = "Thursday, March 08 2018";
             // 
@@ -1126,10 +1126,10 @@
             // panel11_title
             // 
             this.panel11_title.AutoSize = true;
-            this.panel11_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel11_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel11_title.Location = new System.Drawing.Point(797, 360);
             this.panel11_title.Name = "panel11_title";
-            this.panel11_title.Size = new System.Drawing.Size(236, 25);
+            this.panel11_title.Size = new System.Drawing.Size(238, 22);
             this.panel11_title.TabIndex = 19;
             this.panel11_title.Text = "Thursday, March 08 2018";
             // 
@@ -1221,10 +1221,10 @@
             // panel12_title
             // 
             this.panel12_title.AutoSize = true;
-            this.panel12_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel12_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel12_title.Location = new System.Drawing.Point(1055, 360);
             this.panel12_title.Name = "panel12_title";
-            this.panel12_title.Size = new System.Drawing.Size(236, 25);
+            this.panel12_title.Size = new System.Drawing.Size(238, 22);
             this.panel12_title.TabIndex = 21;
             this.panel12_title.Text = "Thursday, March 08 2018";
             // 
@@ -1316,10 +1316,10 @@
             // panel13_title
             // 
             this.panel13_title.AutoSize = true;
-            this.panel13_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel13_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel13_title.Location = new System.Drawing.Point(1312, 360);
             this.panel13_title.Name = "panel13_title";
-            this.panel13_title.Size = new System.Drawing.Size(236, 25);
+            this.panel13_title.Size = new System.Drawing.Size(238, 22);
             this.panel13_title.TabIndex = 23;
             this.panel13_title.Text = "Thursday, March 08 2018";
             // 
@@ -1411,10 +1411,10 @@
             // panel14_title
             // 
             this.panel14_title.AutoSize = true;
-            this.panel14_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel14_title.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel14_title.Location = new System.Drawing.Point(1565, 360);
             this.panel14_title.Name = "panel14_title";
-            this.panel14_title.Size = new System.Drawing.Size(236, 25);
+            this.panel14_title.Size = new System.Drawing.Size(238, 22);
             this.panel14_title.TabIndex = 25;
             this.panel14_title.Text = "Thursday, March 08 2018";
             // 
@@ -1507,7 +1507,7 @@
             // 
             this.cmbEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEmployee.FormattingEnabled = true;
-            this.cmbEmployee.Location = new System.Drawing.Point(134, 23);
+            this.cmbEmployee.Location = new System.Drawing.Point(139, 23);
             this.cmbEmployee.Name = "cmbEmployee";
             this.cmbEmployee.Size = new System.Drawing.Size(448, 33);
             this.cmbEmployee.TabIndex = 27;
@@ -1516,10 +1516,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 29);
+            this.label1.Size = new System.Drawing.Size(125, 26);
             this.label1.TabIndex = 26;
             this.label1.Text = "Employee:";
             // 

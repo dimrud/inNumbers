@@ -101,11 +101,12 @@ namespace InNumbers
                     }
                 }
             }
-
-            foreach (DataRow itemRow in Common.DataReturn("SELECT Client, HrsBudgeted, HoursToCompletion, WIPHours FROM MasterTasks WHERE isClosed = false AND employee = '" + ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value + "'  ORDER BY ScheduleDate").Rows)
+           
+            foreach (DataRow itemRow in Common.DataReturn("SELECT Client, HrsBudgeted, HoursToCompletion, WIPHours, ScheduleDate FROM MasterTasks WHERE isClosed = false AND employee = '" + ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value + "'  ORDER BY ScheduleDate").Rows)
             {
                 if (lastPanel < 15)
                 {
+
                     int hoursToShow = Convert.ToInt32(itemRow["HrsBudgeted"]) - Convert.ToInt32(itemRow["WIPHours"] == DBNull.Value ? "0" : itemRow["WIPHours"]);
 
                     if (hoursToShow <= 0 && Convert.ToInt32(itemRow["HoursToCompletion"] == DBNull.Value ? "0" : itemRow["HoursToCompletion"]) == 0)
@@ -135,6 +136,7 @@ namespace InNumbers
                             skippedPanel = false;
                         }
 
+
                         if (!skippedPanel)
                         {
                             if (lastHour == 8)
@@ -157,6 +159,18 @@ namespace InNumbers
                                 }
                             }
 
+                            //Check if ScheduleDate > Panel Date 
+                            DateTime scheduleDate = DateTime.Parse(itemRow["ScheduleDate"].ToString().Split(' ')[0]);
+                            DateTime currentPanelDate = DateTime.Parse(panelToDateUpdated["panel" + lastPanel].Split(' ')[0]);
+                            int result = DateTime.Compare(currentPanelDate, scheduleDate);
+
+                            if (result < 0)
+                            {
+                                lastPanel++;
+                                skippedPanel = true;
+                                i--;
+                            }
+           
                             if (!skippedPanel)
                             {
                                 Control[] myControl = this.Controls.Find("panel" + lastPanel + "_hour" + lastHour, true);

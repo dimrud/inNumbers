@@ -42,6 +42,8 @@
             this.lblTotalRows = new System.Windows.Forms.Label();
             this.btnCalendar = new System.Windows.Forms.Button();
             this.btnManageCapacity = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.cmdFilterTasks = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMasterTasks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,12 +55,12 @@
             this.dgwMasterTasks.Name = "dgwMasterTasks";
             this.dgwMasterTasks.ReadOnly = true;
             this.dgwMasterTasks.RowTemplate.Height = 28;
-            this.dgwMasterTasks.Size = new System.Drawing.Size(1590, 507);
+            this.dgwMasterTasks.Size = new System.Drawing.Size(1864, 507);
             this.dgwMasterTasks.TabIndex = 0;
             // 
             // btnEdit
             // 
-            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEdit.Location = new System.Drawing.Point(158, 583);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(130, 40);
@@ -69,7 +71,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(305, 583);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(130, 40);
@@ -81,24 +83,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 29);
+            this.label1.Size = new System.Drawing.Size(175, 29);
             this.label1.TabIndex = 3;
             this.label1.Text = "Search Value:";
             // 
             // txtSearchValue
             // 
             this.txtSearchValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearchValue.Location = new System.Drawing.Point(177, 25);
+            this.txtSearchValue.Location = new System.Drawing.Point(187, 25);
             this.txtSearchValue.Name = "txtSearchValue";
             this.txtSearchValue.Size = new System.Drawing.Size(233, 30);
             this.txtSearchValue.TabIndex = 4;
             // 
             // btnSearch
             // 
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Location = new System.Drawing.Point(433, 22);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 38);
@@ -109,7 +111,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(12, 583);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(130, 40);
@@ -120,8 +122,8 @@
             // 
             // btnShowClosed
             // 
-            this.btnShowClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowClosed.Location = new System.Drawing.Point(932, 26);
+            this.btnShowClosed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowClosed.Location = new System.Drawing.Point(1437, 26);
             this.btnShowClosed.Name = "btnShowClosed";
             this.btnShowClosed.Size = new System.Drawing.Size(220, 38);
             this.btnShowClosed.TabIndex = 7;
@@ -132,18 +134,19 @@
             // btnManageUsers
             // 
             this.btnManageUsers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageUsers.Location = new System.Drawing.Point(1170, 26);
+            this.btnManageUsers.Location = new System.Drawing.Point(1651, 307);
             this.btnManageUsers.Name = "btnManageUsers";
             this.btnManageUsers.Size = new System.Drawing.Size(213, 38);
             this.btnManageUsers.TabIndex = 8;
             this.btnManageUsers.Text = "Manage Users";
             this.btnManageUsers.UseVisualStyleBackColor = true;
+            this.btnManageUsers.Visible = false;
             this.btnManageUsers.Click += new System.EventHandler(this.BtnManageUsers_Click);
             // 
             // btnExit
             // 
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.Location = new System.Drawing.Point(1473, 583);
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.Location = new System.Drawing.Point(1746, 583);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(130, 40);
             this.btnExit.TabIndex = 9;
@@ -154,27 +157,27 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(598, 590);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 29);
+            this.label2.Size = new System.Drawing.Size(152, 29);
             this.label2.TabIndex = 10;
             this.label2.Text = "Total Rows:";
             // 
             // lblTotalRows
             // 
             this.lblTotalRows.AutoSize = true;
-            this.lblTotalRows.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalRows.Location = new System.Drawing.Point(738, 591);
+            this.lblTotalRows.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRows.Location = new System.Drawing.Point(747, 591);
             this.lblTotalRows.Name = "lblTotalRows";
-            this.lblTotalRows.Size = new System.Drawing.Size(79, 29);
+            this.lblTotalRows.Size = new System.Drawing.Size(85, 29);
             this.lblTotalRows.TabIndex = 11;
             this.lblTotalRows.Text = "label3";
             // 
             // btnCalendar
             // 
-            this.btnCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalendar.Location = new System.Drawing.Point(700, 26);
+            this.btnCalendar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCalendar.Location = new System.Drawing.Point(1211, 26);
             this.btnCalendar.Name = "btnCalendar";
             this.btnCalendar.Size = new System.Drawing.Size(220, 38);
             this.btnCalendar.TabIndex = 12;
@@ -184,8 +187,8 @@
             // 
             // btnManageCapacity
             // 
-            this.btnManageCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnManageCapacity.Location = new System.Drawing.Point(1389, 26);
+            this.btnManageCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnManageCapacity.Location = new System.Drawing.Point(1663, 26);
             this.btnManageCapacity.Name = "btnManageCapacity";
             this.btnManageCapacity.Size = new System.Drawing.Size(213, 38);
             this.btnManageCapacity.TabIndex = 13;
@@ -193,12 +196,34 @@
             this.btnManageCapacity.UseVisualStyleBackColor = true;
             this.btnManageCapacity.Click += new System.EventHandler(this.BtnManageCapacity_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(684, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(113, 29);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "View By:";
+            // 
+            // cmdFilterTasks
+            // 
+            this.cmdFilterTasks.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmdFilterTasks.FormattingEnabled = true;
+            this.cmdFilterTasks.Location = new System.Drawing.Point(798, 26);
+            this.cmdFilterTasks.Name = "cmdFilterTasks";
+            this.cmdFilterTasks.Size = new System.Drawing.Size(356, 28);
+            this.cmdFilterTasks.TabIndex = 15;
+            this.cmdFilterTasks.SelectedIndexChanged += new System.EventHandler(this.cmdFilterTasks_SelectedIndexChanged);
+            // 
             // Master
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1898, 634);
+            this.ClientSize = new System.Drawing.Size(1920, 634);
+            this.Controls.Add(this.cmdFilterTasks);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnManageCapacity);
             this.Controls.Add(this.btnCalendar);
             this.Controls.Add(this.lblTotalRows);
@@ -241,5 +266,7 @@
         private System.Windows.Forms.Label lblTotalRows;
         private System.Windows.Forms.Button btnCalendar;
         private System.Windows.Forms.Button btnManageCapacity;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cmdFilterTasks;
     }
 }

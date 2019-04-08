@@ -1,28 +1,32 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Drawing;
 using System.Threading;
 using System.Windows.Forms;
+using static InNumbers.Common;
 
 namespace InNumbers
 {
     public partial class Master : Form
     {
+        int selectedPartnerIndex = 0;
+       // int index = 0;
         public Master()
         {
             InitializeComponent();
             this.Text = Program.currentUserFullName + " Form";
-
-            LoadData();
+            cmdFilterTasks.DataSource = LoadPartnerFilter();
+            LoadData(selectedPartnerIndex);
         }
 
-        private void LoadData()
+        private void LoadData(int selectedPartber)
         {
             int totalRows = 0;
             dgwMasterTasks.Rows.Clear();
             Thread.Sleep(500);
 
-            dgwMasterTasks.ColumnCount = 11;
+            dgwMasterTasks.ColumnCount = 12;
             dgwMasterTasks.Columns[0].Name = "id";
             dgwMasterTasks.Columns[1].Name = "Client";
             dgwMasterTasks.Columns[2].Name = "Task";
@@ -34,14 +38,17 @@ namespace InNumbers
             dgwMasterTasks.Columns[8].Name = "Hrs To Complete";
             dgwMasterTasks.Columns[9].Name = "Ready For Review";
             dgwMasterTasks.Columns[10].Name = "Ready For 2nd Review";//"Ask Partner";
+            dgwMasterTasks.Columns[11].Name = "Partner";
             dgwMasterTasks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dgwMasterTasks.Columns[0].Visible = false;
-
+            dgwMasterTasks.Columns[11].Visible = false;
+            dgwMasterTasks.ColumnHeadersDefaultCellStyle.Font = new Font("Tahoma", 9.75F, FontStyle.Bold);
             #region SELECT FROM FILE
             try
             {
-                foreach (DataRow itemRow in Common.DataReturn("SELECT Id,Client, Employee, Task, HrsBudgeted, HoursToCompletion, DateDue, ScheduleDate, ForReview, AskPartner, WIPHours, For2Review FROM MasterTasks WHERE isClosed = false ORDER BY ScheduleDate").Rows)
+                string aa = "SELECT Id, Client, Employee, Task, HrsBudgeted, HoursToCompletion, DateDue, ScheduleDate, ForReview, AskPartner, WIPHours, For2Review, Partner FROM MasterTasks WHERE isClosed = false " + (selectedPartnerIndex == 0 ? "" : " AND Partner = '" + selectedPartnerIndex + "'") + "  ORDER BY ScheduleDate";
+                foreach (DataRow itemRow in Common.DataReturn(aa).Rows)
                 {
                     string employeeName = string.Empty;
                     foreach (DataRow employee in Common.DataReturn("SELECT * FROM LoginInfo WHERE ClientTrackId = " + itemRow["Employee"].ToString()).Rows)
@@ -50,14 +57,14 @@ namespace InNumbers
                         employeeName = employee["FirstName"].ToString()[0] + "." + employee["LastName"].ToString()[0] + ".";
                     }
 
-                 
+
 
                     string[] dateDueArr = itemRow["DateDue"].ToString().Split(' ')[0].ToString().Split('-');
 
                     string[] scheduleDateArr = itemRow["ScheduleDate"].ToString().Split(' ')[0].ToString().Split('-');
                     string[] forReviewArr = itemRow["ForReview"].ToString().Split(' ')[0].ToString().Split('-');
 
-                    string[] for2ReviewArr = itemRow["For2Review"].ToString().Split(' ')[0].ToString().Split('-');  
+                    string[] for2ReviewArr = itemRow["For2Review"].ToString().Split(' ')[0].ToString().Split('-');
 
                     TimeSpan ts = Convert.ToDateTime(itemRow["DateDue"]) - DateTime.Today;
 
@@ -76,7 +83,7 @@ namespace InNumbers
                                                   forReviewArr.Length ==  3 ? forReviewArr[1] + "/" + forReviewArr[2] + "/" + forReviewArr[0] :itemRow["ForReview"].ToString().Split(' ')[0],
                                                   //itemRow["AskPartner"].ToString()== "False" ? "No" : "Yes",
                                                   for2ReviewArr.Length == 3 ? for2ReviewArr[1] + "/" + for2ReviewArr[2] + "/" + for2ReviewArr[0] : itemRow["For2Review"].ToString().Split(' ')[0],
-                                                  
+
                 };
                     dgwMasterTasks.Rows.Add(row);
                     totalRows++;
@@ -86,7 +93,7 @@ namespace InNumbers
                 foreach (DataGridViewRow row in dgwMasterTasks.Rows)
                 {
                     //Days to due date
-                    TimeSpan ts = Convert.ToDateTime(row.Cells[4].Value) - DateTime.Today;
+                    TimeSpan ts = Convert.ToDateTime(row.Cells[5].Value) - DateTime.Today;
                     //if (ts.Days > 15)
                     //    row.DefaultCellStyle.BackColor = System.Drawing.Color.Green;
                     if (ts.Days > 6 && ts.Days < 15)
@@ -108,6 +115,8 @@ namespace InNumbers
             }
             #endregion
 
+            
+            //cmdFilterTasks.SelectedIndex = 0;
         }
 
         private void BtnEdit_Click(object sender, EventArgs e)
@@ -209,7 +218,7 @@ namespace InNumbers
 
         public void ReloadData()
         {
-            LoadData();
+            LoadData(selectedPartnerIndex);
         }
 
         private void BtnShowClosed_Click(object sender, EventArgs e)
@@ -243,6 +252,12 @@ namespace InNumbers
         {
             ManageUserCapacity dlg = new ManageUserCapacity();
             dlg.ShowDialog();
+        }
+
+        private void cmdFilterTasks_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedPartnerIndex = (int)((InNumbers.Common.ComboboxItem)cmdFilterTasks.SelectedItem).Value;           
+            LoadData(selectedPartnerIndex);          
         }
     }
 }

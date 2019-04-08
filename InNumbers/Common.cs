@@ -29,7 +29,7 @@ namespace InNumbers
             string myStr = @"^[0-9/]+$";
 
             Match match = Regex.Match(e.KeyChar.ToString(), myStr, RegexOptions.IgnoreCase);
-            if(match.Success)
+            if (match.Success)
                 e.Handled = false;
 
             else
@@ -37,7 +37,7 @@ namespace InNumbers
         }
 
 
-    public static OleDbConnection FileConnection
+        public static OleDbConnection FileConnection
         {
             get
             {
@@ -99,7 +99,7 @@ namespace InNumbers
             ComboBox cb = new ComboBox();
             cb.Items.Add("Please Select");
             cb.Items.Add("Bookkeeping");
-            cb.Items.Add("HTS Period Return");
+            cb.Items.Add("HST Period Return");
             cb.Items.Add("BK Review");
             cb.Items.Add("BK & Year End File");
             cb.Items.Add("NTR");
@@ -179,7 +179,7 @@ namespace InNumbers
             return cb.Items;
         }
         #endregion
-        #region Load Employee
+        #region Load Partner
         public static ComboBox.ObjectCollection LoadPartner(bool isIncludeFirstLine)
         {
             ComboBox cb = new ComboBox();
@@ -199,6 +199,31 @@ namespace InNumbers
 
             return cb.Items;
         }
+
+        public static ComboBox.ObjectCollection LoadPartnerFilter()
+        {
+            ComboBox cb = new ComboBox();
+            ComboboxItem itemAll = new ComboboxItem
+            {
+                Text = "Select All",
+                Value = 0
+            };
+            cb.Items.Add(itemAll);
+
+            foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE Role = 'Partner' AND isWorking = true").Rows)
+            {
+                ComboboxItem item = new ComboboxItem
+                {
+                    Text = itemRow["FirstName"] + " " + itemRow["LastName"],
+                    Value = itemRow["ClientTrackId"]
+                };
+
+                cb.Items.Add(item);
+            }
+
+            return cb.Items;
+        }
+
         #endregion
 
         public class ComboboxItem
