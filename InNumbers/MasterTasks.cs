@@ -42,7 +42,7 @@ namespace InNumbers
                 lblDateInValue.Text = lblDateInValueArr.Length == 3 ? lblDateInValueArr == null ? "" : lblDateInValueArr[1] + "/" + lblDateInValueArr[2] + "/" + lblDateInValueArr[0] : itemRow["DateIn"].ToString().Split(' ')[0];
 
 
-                foreach (DataRow partner in Common.DataReturn("SELECT FirstName, LastName FROM LoginInfo WHERE ClientTrackId = " + itemRow["Partner"].ToString()).Rows)
+                foreach (DataRow partner in Common.DataReturn("SELECT FirstName, LastName FROM LoginInfo WHERE Id = " + itemRow["Partner"].ToString()).Rows)
                 {
                     lblPartnerValue.Text = partner["FirstName"] + " " + partner["LastName"];
                 }
@@ -113,9 +113,9 @@ namespace InNumbers
                 //Ask Partner
                 lblAskPartnerValue.Text = itemRow["AskPartner"].ToString() == "False" ? "No" : "Yes";
                 //Note to partner
-                rtbNotes.Text = itemRow["Notes"].ToString();
-                //Note to partner
                 rtbNotesOfPrepayer.Text = itemRow["NotesOfPrepayer"].ToString();
+                //Note to partner
+                rtbNotes.Text = itemRow["Notes"].ToString();  
                 //ReadyFor Review
                 string[] lblReadyForReviewValueArr = itemRow["ForReview"].ToString().Split(' ')[0].ToString().Split('-');
                 lblReadyForReviewValue.Text = lblReadyForReviewValueArr.Length == 3 ? lblReadyForReviewValueArr[1] + "/" + lblReadyForReviewValueArr[2] + "/" + lblReadyForReviewValueArr[0] : itemRow["ForReview"].ToString().Split(' ')[0];
@@ -175,6 +175,7 @@ namespace InNumbers
                                             ",ScheduleDate = '" + Convert.ToDateTime(dtpScheduleDate.Value) + "'" +
                                             (txtRevisionDate.Text != "" ? ",RevisionDate = '" + Convert.ToDateTime(txtRevisionDate.Text) + "'" : "") +
                                             (txtAddTime.Text != "" ? ",AdditionalTime = " + txtAddTime.Text : "") +
+                                            ",Notes= '" + rtbNotes.Text + "'" +
                                             ",Employee = " + ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value + " WHERE id = " + _taskId, Common.FileConnection);
                     cmd.ExecuteNonQuery();
                     _parent.ReloadData();

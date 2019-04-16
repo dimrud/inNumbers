@@ -45,8 +45,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.rtbNotesOfPrepayer = new System.Windows.Forms.RichTextBox();
+            this.rtbNotes = new System.Windows.Forms.RichTextBox();
             this.lblPrepayerNotes = new System.Windows.Forms.Label();
             this.lblForReview = new System.Windows.Forms.Label();
             this.lblClientValue = new System.Windows.Forms.Label();
@@ -251,22 +251,22 @@
             this.label16.TabIndex = 34;
             this.label16.Text = "Note To Partner:";
             // 
-            // rtbNotes
-            // 
-            this.rtbNotes.Location = new System.Drawing.Point(760, 376);
-            this.rtbNotes.Name = "rtbNotes";
-            this.rtbNotes.ReadOnly = true;
-            this.rtbNotes.Size = new System.Drawing.Size(620, 95);
-            this.rtbNotes.TabIndex = 35;
-            this.rtbNotes.Text = "";
-            // 
             // rtbNotesOfPrepayer
             // 
-            this.rtbNotesOfPrepayer.Location = new System.Drawing.Point(760, 556);
+            this.rtbNotesOfPrepayer.Location = new System.Drawing.Point(760, 376);
             this.rtbNotesOfPrepayer.Name = "rtbNotesOfPrepayer";
+            this.rtbNotesOfPrepayer.ReadOnly = true;
             this.rtbNotesOfPrepayer.Size = new System.Drawing.Size(620, 95);
-            this.rtbNotesOfPrepayer.TabIndex = 37;
+            this.rtbNotesOfPrepayer.TabIndex = 35;
             this.rtbNotesOfPrepayer.Text = "";
+            // 
+            // rtbNotes
+            // 
+            this.rtbNotes.Location = new System.Drawing.Point(760, 556);
+            this.rtbNotes.Name = "rtbNotes";
+            this.rtbNotes.Size = new System.Drawing.Size(620, 95);
+            this.rtbNotes.TabIndex = 37;
+            this.rtbNotes.Text = "";
             // 
             // lblPrepayerNotes
             // 
@@ -577,9 +577,9 @@
             this.Controls.Add(this.lblTaskValue);
             this.Controls.Add(this.lblClientValue);
             this.Controls.Add(this.lblForReview);
-            this.Controls.Add(this.rtbNotesOfPrepayer);
-            this.Controls.Add(this.lblPrepayerNotes);
             this.Controls.Add(this.rtbNotes);
+            this.Controls.Add(this.lblPrepayerNotes);
+            this.Controls.Add(this.rtbNotesOfPrepayer);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.lblAskPartner);
             this.Controls.Add(this.label13);
@@ -628,8 +628,8 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.RichTextBox rtbNotes;
         private System.Windows.Forms.RichTextBox rtbNotesOfPrepayer;
+        private System.Windows.Forms.RichTextBox rtbNotes;
         private System.Windows.Forms.Label lblPrepayerNotes;
         private System.Windows.Forms.Label lblForReview;
         private System.Windows.Forms.Label lblClientValue;

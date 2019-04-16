@@ -170,7 +170,28 @@ namespace InNumbers
                 ComboboxItem item = new ComboboxItem
                 {
                     Text = itemRow["FirstName"] + " " + itemRow["LastName"],
-                    Value = itemRow["ClientTrackId"]
+                    Value = itemRow["Id"]
+                };
+
+                cb.Items.Add(item);
+            }
+
+            return cb.Items;
+        }
+        #endregion
+        #region Load Manager
+        public static ComboBox.ObjectCollection LoadManager(bool isIncludeFirstLine)
+        {
+            ComboBox cb = new ComboBox();
+            if (isIncludeFirstLine)
+                cb.Items.Add("Please select manager");
+
+            foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE Role = 'Manager' AND isWorking = true").Rows)
+            {
+                ComboboxItem item = new ComboboxItem
+                {
+                    Text = itemRow["FirstName"] + " " + itemRow["LastName"],
+                    Value = itemRow["Id"]
                 };
 
                 cb.Items.Add(item);
@@ -191,7 +212,7 @@ namespace InNumbers
                 ComboboxItem item = new ComboboxItem
                 {
                     Text = itemRow["FirstName"] + " " + itemRow["LastName"],
-                    Value = itemRow["ClientTrackId"]
+                    Value = itemRow["Id"]
                 };
 
                 cb.Items.Add(item);
@@ -215,7 +236,7 @@ namespace InNumbers
                 ComboboxItem item = new ComboboxItem
                 {
                     Text = itemRow["FirstName"] + " " + itemRow["LastName"],
-                    Value = itemRow["ClientTrackId"]
+                    Value = itemRow["Id"]
                 };
 
                 cb.Items.Add(item);

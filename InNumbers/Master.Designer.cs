@@ -214,7 +214,7 @@
             this.cmdFilterTasks.Name = "cmdFilterTasks";
             this.cmdFilterTasks.Size = new System.Drawing.Size(356, 28);
             this.cmdFilterTasks.TabIndex = 15;
-            this.cmdFilterTasks.SelectedIndexChanged += new System.EventHandler(this.cmdFilterTasks_SelectedIndexChanged);
+            this.cmdFilterTasks.SelectedIndexChanged += new System.EventHandler(this.CmdFilterTasks_SelectedIndexChanged);
             // 
             // Master
             // 

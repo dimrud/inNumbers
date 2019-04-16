@@ -40,7 +40,7 @@ namespace InNumbers
                 lblClientValue.Text = itemRow["Client"].ToString();
                 lblTaskValue.Text = itemRow["Task"].ToString();
 
-                foreach (DataRow partner in Common.DataReturn("SELECT FirstName, LastName FROM LoginInfo WHERE ClientTrackId = " + itemRow["Partner"].ToString()).Rows)
+                foreach (DataRow partner in Common.DataReturn("SELECT FirstName, LastName FROM LoginInfo WHERE Id = " + itemRow["Partner"].ToString()).Rows)
                 {
                     lblPartnerValue.Text = partner["FirstName"] + " " + partner["LastName"];
                 }
@@ -94,9 +94,9 @@ namespace InNumbers
                 else
                     cmbAskPartner.SelectedIndex = 1;
                 //Note to partner
-                rtbNotes.Text = itemRow["Notes"].ToString();
+                rtbNotesOfPrepayer.Text = itemRow["NotesOfPrepayer"].ToString(); 
                 //Note to partner
-                rtbNotesOfPrepayer.Text = itemRow["NotesOfPrepayer"].ToString();
+                rtbNotes.Text = itemRow["Notes"].ToString();
                 //ReadyFor Review
                 string[] txtReadyForReviewArr = itemRow["ForReview"].ToString().Split(' ')[0].ToString().Split('-');
                 txtReadyForReview.Text = txtReadyForReviewArr.Length == 3 ? txtReadyForReviewArr[1] + "/" + txtReadyForReviewArr[2] + "/" + txtReadyForReviewArr[0] : itemRow["ForReview"].ToString().Split(' ')[0];//itemRow["ForReview"].ToString();//(itemRow["ForReview"] != System.DBNull.Value ? Convert.ToDateTime(itemRow["ForReview"]) : DateTime.Today);  
@@ -156,8 +156,8 @@ namespace InNumbers
                                             (txtReady2ndReview.Text != "" ? ",For2Review = '" + Convert.ToDateTime(txtReady2ndReview.Text) + "'" : "") +
                                             ", HoursToCompletion = " + txtHoursToComplete.Text +
                                             " , AskPartner = " + (cmbAskPartner.SelectedItem.ToString() == "No" ? false : true) +
-                                            " , Notes = '" + (rtbNotes.Text == String.Empty ? "" : rtbNotes.Text) +
-                                            "' , NotesOfPrepayer = '" + (rtbNotesOfPrepayer.Text == String.Empty ? "" : rtbNotesOfPrepayer.Text) + "'" +
+                                            " , NotesOfPrepayer = '" + (rtbNotesOfPrepayer.Text == String.Empty ? "" : rtbNotesOfPrepayer.Text) +
+                                            "' , Notes  = '" + (rtbNotes.Text == String.Empty ? "" : rtbNotes.Text) + "'" +
                                             (txtReadyForReview.Text != "" ? ",  ForReview = '" + new DateTime(Convert.ToInt32(txtReadyForReview.Text.Split('/')[2]), Convert.ToInt32(txtReadyForReview.Text.Split('/')[0]), Convert.ToInt32(txtReadyForReview.Text.Split('/')[1])) + "'" : "") +
                                             " WHERE id = " + _taskId, Common.FileConnection);
                     cmd.ExecuteNonQuery();

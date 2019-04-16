@@ -40,7 +40,7 @@ namespace InNumbers
 
                // lblDateInValue.Text = itemRow["DateIn"].ToString().Split(' ')[0];
 
-                foreach (DataRow partner in Common.DataReturn("SELECT FirstName, LastName FROM LoginInfo WHERE ClientTrackId = " + itemRow["Partner"].ToString()).Rows)
+                foreach (DataRow partner in Common.DataReturn("SELECT FirstName, LastName FROM LoginInfo WHERE Id = " + itemRow["Partner"].ToString()).Rows)
                 {
                     lblPartnerValue.Text = partner["FirstName"] + " " + partner["LastName"];
                 }

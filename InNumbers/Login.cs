@@ -44,12 +44,12 @@ namespace InNumbers
 
                     //adapterUserInfo.Fill(itemsDt);
 
-                    foreach (DataRow itemRow in Common.DataReturn("SELECT ClientTrackId, username, password, role, firstname, lastname FROM LoginInfo WHERE  isWorking = true").Rows)
+                    foreach (DataRow itemRow in Common.DataReturn("SELECT Id, username, password, role, firstname, lastname FROM LoginInfo WHERE  isWorking = true").Rows)
                     {
                         if (itemRow["username"].ToString().Equals(txtUserName.Text) && itemRow["password"].ToString().Equals(txtPassword.Text))
                         {
                             isLoged = true;
-                            Program.currentUserId = itemRow["ClientTrackId"].ToString();
+                            Program.currentUserId = itemRow["Id"].ToString();
                             Program.currentUserFullName = itemRow["firstname"].ToString() + " " + itemRow["lastname"].ToString();
 
                             this.Hide();

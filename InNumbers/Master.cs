@@ -51,7 +51,7 @@ namespace InNumbers
                 foreach (DataRow itemRow in Common.DataReturn(aa).Rows)
                 {
                     string employeeName = string.Empty;
-                    foreach (DataRow employee in Common.DataReturn("SELECT * FROM LoginInfo WHERE ClientTrackId = " + itemRow["Employee"].ToString()).Rows)
+                    foreach (DataRow employee in Common.DataReturn("SELECT * FROM LoginInfo WHERE Id = " + itemRow["Employee"].ToString()).Rows)
                     {
                         //employeeName = employee["FirstName"] + " " + employee["LastName"];
                         employeeName = employee["FirstName"].ToString()[0] + "." + employee["LastName"].ToString()[0] + ".";
@@ -254,7 +254,7 @@ namespace InNumbers
             dlg.ShowDialog();
         }
 
-        private void cmdFilterTasks_SelectedIndexChanged(object sender, EventArgs e)
+        private void CmdFilterTasks_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedPartnerIndex = (int)((InNumbers.Common.ComboboxItem)cmdFilterTasks.SelectedItem).Value;           
             LoadData(selectedPartnerIndex);          
