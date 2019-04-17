@@ -8,17 +8,38 @@ namespace InNumbers
     public partial class Calendar : Form
     {
         Dictionary<string, string> panelToDate = new Dictionary<string, string>();
-
-        public Calendar()
+        int currentEmployeeId = 0;
+        public Calendar(int employeeId)
         {
             InitializeComponent();
-            LoadEmployee();
             InitTitles();
             InitPanelWithDate();
-            InitData();
+
+            if (employeeId > 0)
+            {
+                cmbEmployee.Visible = false;
+                txtEmployeeName.Visible = true;
+                foreach (DataRow employee in Common.DataReturn("SELECT * FROM LoginInfo WHERE Id = " + employeeId).Rows)
+                {
+                    //employeeName = employee["FirstName"] + " " + employee["LastName"];
+                    txtEmployeeName.Text = employee["FirstName"].ToString() + " " + employee["LastName"].ToString();
+                }
+                                
+                currentEmployeeId = employeeId;
+                InitData();
+            }
+            else
+            {
+                cmbEmployee.Visible = true;
+                txtEmployeeName.Visible = false;
+                LoadEmployees();
+            }
+            
+            
+            //InitData();
         }
 
-        private void LoadEmployee()
+        private void LoadEmployees()
         {
             cmbEmployee.DataSource = Common.LoadEmployee(true);
             cmbEmployee.SelectedIndex = 0;
@@ -79,9 +100,10 @@ namespace InNumbers
                     }
                 }
 
-                if (cmbEmployee.SelectedIndex < 1) return;
+                if(currentEmployeeId == 0 && cmbEmployee.SelectedIndex < 1) return;
+                //if (cmbEmployee.SelectedIndex < 1) return;
 
-                DataTable daysOffDT = Common.DataReturn("SELECT * FROM Capacity WHERE Employee = " + ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value +
+                DataTable daysOffDT = Common.DataReturn("SELECT * FROM Capacity WHERE Employee = " + (currentEmployeeId == 0 ? ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId )+
                                                                      " AND DayOff >= Date() ORDER BY DayOff");
 
                 //Check panels for Days off
@@ -104,7 +126,7 @@ namespace InNumbers
                     }
                 }
 
-                foreach (DataRow itemRow in Common.DataReturn("SELECT Client, HrsBudgeted, HoursToCompletion, WIPHours, ScheduleDate FROM MasterTasks WHERE isClosed = false AND employee = '" + ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value + "'  ORDER BY ScheduleDate").Rows)
+                foreach (DataRow itemRow in Common.DataReturn("SELECT Client, HrsBudgeted, HoursToCompletion, WIPHours, ScheduleDate FROM MasterTasks WHERE isClosed = false AND employee = '" + (currentEmployeeId == 0 ? ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId)  + "'  ORDER BY ScheduleDate").Rows)
                 {
                     if (lastPanel < 15)
                     {

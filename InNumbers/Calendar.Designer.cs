@@ -157,6 +157,7 @@
             this.cmbEmployee = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnCancelTask = new System.Windows.Forms.Button();
+            this.txtEmployeeName = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -1534,12 +1535,23 @@
             this.btnCancelTask.UseVisualStyleBackColor = true;
             this.btnCancelTask.Click += new System.EventHandler(this.BtnCancelTask_Click);
             // 
+            // txtEmployeeName
+            // 
+            this.txtEmployeeName.AutoSize = true;
+            this.txtEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmployeeName.Location = new System.Drawing.Point(143, 25);
+            this.txtEmployeeName.Name = "txtEmployeeName";
+            this.txtEmployeeName.Size = new System.Drawing.Size(122, 29);
+            this.txtEmployeeName.TabIndex = 29;
+            this.txtEmployeeName.Text = "Employee";
+            // 
             // Calendar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1822, 718);
+            this.Controls.Add(this.txtEmployeeName);
             this.Controls.Add(this.btnCancelTask);
             this.Controls.Add(this.cmbEmployee);
             this.Controls.Add(this.label1);
@@ -1737,5 +1749,6 @@
         private System.Windows.Forms.ComboBox cmbEmployee;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnCancelTask;
+        private System.Windows.Forms.Label txtEmployeeName;
     }
 }

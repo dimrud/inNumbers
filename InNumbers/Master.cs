@@ -20,7 +20,7 @@ namespace InNumbers
             LoadData(selectedPartnerIndex);
         }
 
-        private void LoadData(int selectedPartber)
+        private void LoadData(int selectedPartner)
         {
             int totalRows = 0;
             dgwMasterTasks.Rows.Clear();
@@ -56,8 +56,6 @@ namespace InNumbers
                         //employeeName = employee["FirstName"] + " " + employee["LastName"];
                         employeeName = employee["FirstName"].ToString()[0] + "." + employee["LastName"].ToString()[0] + ".";
                     }
-
-
 
                     string[] dateDueArr = itemRow["DateDue"].ToString().Split(' ')[0].ToString().Split('-');
 
@@ -114,8 +112,6 @@ namespace InNumbers
                 Common.FileConnection.Close();
             }
             #endregion
-
-            
             //cmdFilterTasks.SelectedIndex = 0;
         }
 
@@ -244,7 +240,7 @@ namespace InNumbers
 
         private void BtnCalendar_Click(object sender, EventArgs e)
         {
-            Calendar ct = new Calendar();
+            Calendar ct = new Calendar(0);
             ct.ShowDialog();
         }
 
@@ -258,6 +254,13 @@ namespace InNumbers
         {
             selectedPartnerIndex = (int)((InNumbers.Common.ComboboxItem)cmdFilterTasks.SelectedItem).Value;           
             LoadData(selectedPartnerIndex);          
+        }
+
+        private void BtnRefresh_Click(object sender, EventArgs e)
+        {
+            cmdFilterTasks.SelectedIndex = 0;
+            //selectedPartnerIndex = 0;
+            LoadData(selectedPartnerIndex);
         }
     }
 }

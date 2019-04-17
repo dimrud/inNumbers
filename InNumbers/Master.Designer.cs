@@ -44,6 +44,7 @@
             this.btnManageCapacity = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.cmdFilterTasks = new System.Windows.Forms.ComboBox();
+            this.btnRefresh = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwMasterTasks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,12 +217,24 @@
             this.cmdFilterTasks.TabIndex = 15;
             this.cmdFilterTasks.SelectedIndexChanged += new System.EventHandler(this.CmdFilterTasks_SelectedIndexChanged);
             // 
+            // btnRefresh
+            // 
+            this.btnRefresh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRefresh.Location = new System.Drawing.Point(853, 586);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(130, 40);
+            this.btnRefresh.TabIndex = 16;
+            this.btnRefresh.Text = "Refresh";
+            this.btnRefresh.UseVisualStyleBackColor = true;
+            this.btnRefresh.Click += new System.EventHandler(this.BtnRefresh_Click);
+            // 
             // Master
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1920, 634);
+            this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.cmdFilterTasks);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnManageCapacity);
@@ -268,5 +281,6 @@
         private System.Windows.Forms.Button btnManageCapacity;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmdFilterTasks;
+        private System.Windows.Forms.Button btnRefresh;
     }
 }

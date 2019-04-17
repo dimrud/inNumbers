@@ -75,6 +75,8 @@
             this.txtAddTime = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.lblReadyFor2ndReview = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cmbManager = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -155,7 +157,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(760, 70);
+            this.label6.Location = new System.Drawing.Point(760, 103);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 29);
             this.label6.TabIndex = 13;
@@ -175,7 +177,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(760, 115);
+            this.label8.Location = new System.Drawing.Point(760, 148);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(167, 29);
             this.label8.TabIndex = 17;
@@ -185,7 +187,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(760, 160);
+            this.label9.Location = new System.Drawing.Point(760, 193);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(133, 29);
             this.label9.TabIndex = 19;
@@ -195,7 +197,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(760, 295);
+            this.label10.Location = new System.Drawing.Point(760, 328);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(113, 29);
             this.label10.TabIndex = 21;
@@ -205,7 +207,7 @@
             // 
             this.lblVariance.AutoSize = true;
             this.lblVariance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVariance.Location = new System.Drawing.Point(869, 295);
+            this.lblVariance.Location = new System.Drawing.Point(869, 328);
             this.lblVariance.Name = "lblVariance";
             this.lblVariance.Size = new System.Drawing.Size(164, 29);
             this.lblVariance.TabIndex = 23;
@@ -235,7 +237,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(760, 205);
+            this.label13.Location = new System.Drawing.Point(760, 238);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(220, 29);
             this.label13.TabIndex = 28;
@@ -245,7 +247,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(760, 340);
+            this.label16.Location = new System.Drawing.Point(760, 373);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(191, 29);
             this.label16.TabIndex = 34;
@@ -253,7 +255,7 @@
             // 
             // rtbNotesOfPrepayer
             // 
-            this.rtbNotesOfPrepayer.Location = new System.Drawing.Point(760, 376);
+            this.rtbNotesOfPrepayer.Location = new System.Drawing.Point(760, 409);
             this.rtbNotesOfPrepayer.Name = "rtbNotesOfPrepayer";
             this.rtbNotesOfPrepayer.ReadOnly = true;
             this.rtbNotesOfPrepayer.Size = new System.Drawing.Size(620, 95);
@@ -262,7 +264,7 @@
             // 
             // rtbNotes
             // 
-            this.rtbNotes.Location = new System.Drawing.Point(760, 556);
+            this.rtbNotes.Location = new System.Drawing.Point(760, 589);
             this.rtbNotes.Name = "rtbNotes";
             this.rtbNotes.Size = new System.Drawing.Size(620, 95);
             this.rtbNotes.TabIndex = 37;
@@ -272,7 +274,7 @@
             // 
             this.lblPrepayerNotes.AutoSize = true;
             this.lblPrepayerNotes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrepayerNotes.Location = new System.Drawing.Point(760, 520);
+            this.lblPrepayerNotes.Location = new System.Drawing.Point(760, 553);
             this.lblPrepayerNotes.Name = "lblPrepayerNotes";
             this.lblPrepayerNotes.Size = new System.Drawing.Size(89, 29);
             this.lblPrepayerNotes.TabIndex = 36;
@@ -361,7 +363,7 @@
             // 
             this.cmbEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEmployee.FormattingEnabled = true;
-            this.cmbEmployee.Location = new System.Drawing.Point(886, 70);
+            this.cmbEmployee.Location = new System.Drawing.Point(886, 103);
             this.cmbEmployee.Name = "cmbEmployee";
             this.cmbEmployee.Size = new System.Drawing.Size(286, 33);
             this.cmbEmployee.TabIndex = 63;
@@ -410,7 +412,7 @@
             // 
             this.txtHrsToComplete.AutoSize = true;
             this.txtHrsToComplete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHrsToComplete.Location = new System.Drawing.Point(977, 205);
+            this.txtHrsToComplete.Location = new System.Drawing.Point(977, 238);
             this.txtHrsToComplete.Name = "txtHrsToComplete";
             this.txtHrsToComplete.Size = new System.Drawing.Size(242, 29);
             this.txtHrsToComplete.TabIndex = 69;
@@ -460,7 +462,7 @@
             // 
             this.lblWIPHoursValue.AutoSize = true;
             this.lblWIPHoursValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWIPHoursValue.Location = new System.Drawing.Point(886, 161);
+            this.lblWIPHoursValue.Location = new System.Drawing.Point(886, 194);
             this.lblWIPHoursValue.Name = "lblWIPHoursValue";
             this.lblWIPHoursValue.Size = new System.Drawing.Size(0, 29);
             this.lblWIPHoursValue.TabIndex = 74;
@@ -468,7 +470,7 @@
             // txtHoursBudgeted
             // 
             this.txtHoursBudgeted.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtHoursBudgeted.Location = new System.Drawing.Point(922, 115);
+            this.txtHoursBudgeted.Location = new System.Drawing.Point(922, 148);
             this.txtHoursBudgeted.MaxLength = 2;
             this.txtHoursBudgeted.Name = "txtHoursBudgeted";
             this.txtHoursBudgeted.Size = new System.Drawing.Size(100, 30);
@@ -509,7 +511,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(760, 250);
+            this.label17.Location = new System.Drawing.Point(760, 283);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(134, 29);
             this.label17.TabIndex = 128;
@@ -518,7 +520,7 @@
             // txtAddTime
             // 
             this.txtAddTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAddTime.Location = new System.Drawing.Point(894, 250);
+            this.txtAddTime.Location = new System.Drawing.Point(894, 283);
             this.txtAddTime.MaxLength = 2;
             this.txtAddTime.Name = "txtAddTime";
             this.txtAddTime.Size = new System.Drawing.Size(100, 30);
@@ -544,6 +546,25 @@
             this.lblReadyFor2ndReview.TabIndex = 133;
             this.lblReadyFor2ndReview.Text = "Ready2ndReviewValue";
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.Location = new System.Drawing.Point(760, 60);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(114, 29);
+            this.label21.TabIndex = 134;
+            this.label21.Text = "Manager:";
+            // 
+            // cmbManager
+            // 
+            this.cmbManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbManager.FormattingEnabled = true;
+            this.cmbManager.Location = new System.Drawing.Point(886, 60);
+            this.cmbManager.Name = "cmbManager";
+            this.cmbManager.Size = new System.Drawing.Size(286, 33);
+            this.cmbManager.TabIndex = 135;
+            // 
             // MasterTasks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -551,6 +572,8 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1436, 795);
             this.ControlBox = false;
+            this.Controls.Add(this.cmbManager);
+            this.Controls.Add(this.label21);
             this.Controls.Add(this.lblReadyFor2ndReview);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.txtAddTime);
@@ -658,5 +681,7 @@
         private System.Windows.Forms.TextBox txtAddTime;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblReadyFor2ndReview;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.ComboBox cmbManager;
     }
 }

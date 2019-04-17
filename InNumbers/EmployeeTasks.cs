@@ -44,6 +44,11 @@ namespace InNumbers
                 {
                     lblPartnerValue.Text = partner["FirstName"] + " " + partner["LastName"];
                 }
+                //Manager
+                foreach (DataRow partner in Common.DataReturn("SELECT FirstName, LastName FROM LoginInfo WHERE Id = " + itemRow["ManagerId"].ToString()).Rows)
+                {
+                    lblManagerValue.Text = partner["FirstName"] + " " + partner["LastName"];
+                }
 
                 string[] lblDateInValueArr = itemRow["DateIn"].ToString() == "" ? null : itemRow["DateIn"].ToString().Split(' ')[0].ToString().Split('-');
                 lblDateInValue.Text = lblDateInValueArr.Length == 3 ? lblDateInValueArr == null ? "" : lblDateInValueArr[1] + "/" + lblDateInValueArr[2] + "/" + lblDateInValueArr[0] : itemRow["DateIn"].ToString().Split(' ')[0];

@@ -20,6 +20,9 @@ namespace InNumbers
             cmbPartner.DataSource = Common.LoadPartner(true);
             cmbPartner.SelectedIndex = 0;
 
+            cmbManager.DataSource = Common.LoadManager(true);
+            cmbManager.SelectedIndex = 0;
+
             cmbTask.DataSource = Common.InitTasks();
             cmbTask.SelectedIndex = 0;
 
@@ -28,6 +31,7 @@ namespace InNumbers
 
             txtHrsBudgeted.KeyPress += new KeyPressEventHandler(Common.OnlyNumbers);
             cmbClients.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbManager.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPartner.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTask.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbEmployee.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -94,6 +98,10 @@ namespace InNumbers
             {
                 errorMessage += "Please select partner " + Environment.NewLine;
             }
+            if (cmbManager.SelectedIndex == 0)
+            {
+                errorMessage += "Please select manager " + Environment.NewLine;
+            }
             if (cmbEmployee.SelectedIndex == 0)
             {
                 errorMessage += "Please select employee " + Environment.NewLine;
@@ -124,12 +132,13 @@ namespace InNumbers
                 try
                 {
                     string task = txtCustomTaskDescription.Visible ? "Custom:" + txtCustomTaskDescription.Text : cmbTask.SelectedItem.ToString();
-                    cmd = new OleDbCommand("INSERT INTO MasterTasks (Client, Task, Partner, DateIn, DateDue, " +
+                    cmd = new OleDbCommand("INSERT INTO MasterTasks (Client, Task, Partner, ManagerId, DateIn, DateDue, " +
                                                "Employee, ScheduleDate,HrsBudgeted, ClientTrackCompanyId) " +
-                                               "VALUES(@Client, @Task, @Partner, @DateIn, @DateDue, @Employee, @ScheduleDate,@HrsBudgeted, @ClientTrackCompanyId)", Common.FileConnection);
+                                               "VALUES(@Client, @Task, @Partner, ManagerId, @DateIn, @DateDue, @Employee, @ScheduleDate,@HrsBudgeted, @ClientTrackCompanyId)", Common.FileConnection);
                     cmd.Parameters.Add("@Client", OleDbType.VarChar).Value = cmbClients.SelectedItem.ToString();
                     cmd.Parameters.Add("@Task", OleDbType.VarChar).Value = task;
                     cmd.Parameters.Add("@Partner", OleDbType.VarChar).Value = Convert.ToInt32(((InNumbers.Common.ComboboxItem)cmbPartner.SelectedItem).Value);
+                    cmd.Parameters.Add("@ManagerId", OleDbType.VarChar).Value = Convert.ToInt32(((InNumbers.Common.ComboboxItem)cmbManager.SelectedItem).Value);
                     cmd.Parameters.Add("@DateIn", OleDbType.Date).Value = dtpDateIn.Value;
                     cmd.Parameters.Add("@DateDue", OleDbType.Date).Value = dtpDateDue.Value;
                     cmd.Parameters.Add("@Employee", OleDbType.Char).Value = ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value;

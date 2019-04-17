@@ -158,6 +158,9 @@
     <EmbeddedResource Include="MasterClosedTasks.resx">
       <DependentUpon>MasterClosedTasks.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MasterTaskAdd.resx">
+      <DependentUpon>MasterTaskAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MasterTasks.resx">
       <DependentUpon>MasterTasks.cs</DependentUpon>
     </EmbeddedResource>

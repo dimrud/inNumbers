@@ -31,6 +31,7 @@ namespace InNumbers
         private void LoadTask(int id)
         {
             cmbEmployee.DataSource = Common.LoadEmployee(false);
+            cmbManager.DataSource = Common.LoadManager(false);
             #region SELECT FROM FILE
             foreach (DataRow itemRow in Common.DataReturn("SELECT * FROM MasterTasks WHERE id = " + id).Rows)
             {
@@ -62,6 +63,20 @@ namespace InNumbers
                     employeeCurrentIndex++;
                 }
                 cmbEmployee.SelectedIndex = employeeSelectedtIndex;
+
+
+                int managerCurrentIndex = 0;
+                int managerSelectedtIndex = 0;
+                foreach (Common.ComboboxItem item in cmbManager.Items)
+                {
+                    if (item.Value.ToString() == itemRow["ManagerId"].ToString())
+                    {
+                        managerSelectedtIndex = managerCurrentIndex;
+                    }
+                    managerCurrentIndex++;
+                }
+                cmbManager.SelectedIndex = managerSelectedtIndex;
+
 
                 txtHoursBudgeted.Text = itemRow["HrsBudgeted"].ToString();
                 dtpScheduleDate.Value = Convert.ToDateTime(itemRow["ScheduleDate"]);
@@ -176,7 +191,9 @@ namespace InNumbers
                                             (txtRevisionDate.Text != "" ? ",RevisionDate = '" + Convert.ToDateTime(txtRevisionDate.Text) + "'" : "") +
                                             (txtAddTime.Text != "" ? ",AdditionalTime = " + txtAddTime.Text : "") +
                                             ",Notes= '" + rtbNotes.Text + "'" +
-                                            ",Employee = " + ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value + " WHERE id = " + _taskId, Common.FileConnection);
+                                            ",Employee = " + ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value +
+                                            ",ManagerId = " + ((InNumbers.Common.ComboboxItem)cmbManager.SelectedItem).Value +
+                                            " WHERE id = " + _taskId, Common.FileConnection);
                     cmd.ExecuteNonQuery();
                     _parent.ReloadData();
                     this.Close();

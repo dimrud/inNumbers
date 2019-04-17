@@ -48,6 +48,8 @@
             this.btnCancelTask = new System.Windows.Forms.Button();
             this.lblCustomTaskLabel = new System.Windows.Forms.Label();
             this.txtCustomTaskDescription = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbManager = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -112,7 +114,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(755, 120);
+            this.label6.Location = new System.Drawing.Point(755, 156);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(128, 29);
             this.label6.TabIndex = 14;
@@ -122,7 +124,7 @@
             // 
             this.cmbEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbEmployee.FormattingEnabled = true;
-            this.cmbEmployee.Location = new System.Drawing.Point(902, 120);
+            this.cmbEmployee.Location = new System.Drawing.Point(902, 156);
             this.cmbEmployee.Name = "cmbEmployee";
             this.cmbEmployee.Size = new System.Drawing.Size(349, 33);
             this.cmbEmployee.TabIndex = 15;
@@ -243,11 +245,32 @@
             this.txtCustomTaskDescription.Size = new System.Drawing.Size(265, 26);
             this.txtCustomTaskDescription.TabIndex = 27;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(755, 94);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(114, 29);
+            this.label9.TabIndex = 28;
+            this.label9.Text = "Manager:";
+            // 
+            // cmbManager
+            // 
+            this.cmbManager.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbManager.FormattingEnabled = true;
+            this.cmbManager.Location = new System.Drawing.Point(902, 94);
+            this.cmbManager.Name = "cmbManager";
+            this.cmbManager.Size = new System.Drawing.Size(349, 33);
+            this.cmbManager.TabIndex = 29;
+            // 
             // MasterTaskAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1284, 473);
+            this.Controls.Add(this.cmbManager);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtCustomTaskDescription);
             this.Controls.Add(this.lblCustomTaskLabel);
             this.Controls.Add(this.btnCancelTask);
@@ -299,5 +322,7 @@
         private System.Windows.Forms.Button btnCancelTask;
         private System.Windows.Forms.Label lblCustomTaskLabel;
         private System.Windows.Forms.TextBox txtCustomTaskDescription;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbManager;
     }
 }

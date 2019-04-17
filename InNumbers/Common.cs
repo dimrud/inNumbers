@@ -165,7 +165,7 @@ namespace InNumbers
             if (isIncludeFirstLine)
                 cb.Items.Add("Please select Employee");
 
-            foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE Role = 'Employee' AND isWorking = true").Rows)
+            foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE (Role = 'Employee' OR Role = 'Manager') AND isWorking = true").Rows)
             {
                 ComboboxItem item = new ComboboxItem
                 {

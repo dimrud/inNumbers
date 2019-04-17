@@ -77,6 +77,8 @@
             this.lblRevisionDate = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.lblAdditionalTime = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lblManagerValue = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblDaysToDueDate
@@ -569,6 +571,26 @@
             this.lblAdditionalTime.TabIndex = 140;
             this.lblAdditionalTime.Text = "AdditionalTimeValue";
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(760, 70);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(114, 29);
+            this.label24.TabIndex = 141;
+            this.label24.Text = "Manager:";
+            // 
+            // lblManagerValue
+            // 
+            this.lblManagerValue.AutoSize = true;
+            this.lblManagerValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblManagerValue.Location = new System.Drawing.Point(876, 70);
+            this.lblManagerValue.Name = "lblManagerValue";
+            this.lblManagerValue.Size = new System.Drawing.Size(169, 29);
+            this.lblManagerValue.TabIndex = 142;
+            this.lblManagerValue.Text = "ManagerValue";
+            // 
             // EmployeeTasks
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -576,6 +598,8 @@
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1898, 799);
             this.ControlBox = false;
+            this.Controls.Add(this.lblManagerValue);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.lblAdditionalTime);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.lblRevisionDate);
@@ -686,5 +710,7 @@
         private System.Windows.Forms.Label lblRevisionDate;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label lblAdditionalTime;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label lblManagerValue;
     }
 }
