@@ -24,7 +24,7 @@ namespace InNumbers
                     //employeeName = employee["FirstName"] + " " + employee["LastName"];
                     txtEmployeeName.Text = employee["FirstName"].ToString() + " " + employee["LastName"].ToString();
                 }
-                                
+
                 currentEmployeeId = employeeId;
                 InitData();
             }
@@ -34,8 +34,8 @@ namespace InNumbers
                 txtEmployeeName.Visible = false;
                 LoadEmployees();
             }
-            
-            
+
+
             //InitData();
         }
 
@@ -100,10 +100,12 @@ namespace InNumbers
                     }
                 }
 
-                if(currentEmployeeId == 0 && cmbEmployee.SelectedIndex < 1) return;
+                if (currentEmployeeId == 0 && cmbEmployee.SelectedIndex < 1) return;
                 //if (cmbEmployee.SelectedIndex < 1) return;
 
-                DataTable daysOffDT = Common.DataReturn("SELECT * FROM Capacity WHERE Employee = " + (currentEmployeeId == 0 ? ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId )+
+                string select = "SELECT * FROM Capacity WHERE Employee = " + (currentEmployeeId == 0 ? ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId) +
+                                                                     " AND DayOff >= Date() ORDER BY DayOff";
+                DataTable daysOffDT = Common.DataReturn("SELECT * FROM Capacity WHERE Employee = " + (currentEmployeeId == 0 ? ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId) +
                                                                      " AND DayOff >= Date() ORDER BY DayOff");
 
                 //Check panels for Days off
@@ -126,87 +128,111 @@ namespace InNumbers
                     }
                 }
 
-                foreach (DataRow itemRow in Common.DataReturn("SELECT Client, HrsBudgeted, HoursToCompletion, WIPHours, ScheduleDate FROM MasterTasks WHERE isClosed = false AND employee = '" + (currentEmployeeId == 0 ? ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId)  + "'  ORDER BY ScheduleDate").Rows)
+                //Check if any tasks
+                DataRowCollection itemRows = Common.DataReturn("SELECT Client, HrsBudgeted, HoursToCompletion, WIPHours, ScheduleDate FROM MasterTasks WHERE isClosed = false AND employee = '" + (currentEmployeeId == 0 ? ((Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId) + "'  ORDER BY ScheduleDate").Rows;
+                //Any tasks
+                if (itemRows.Count > 0)
                 {
-                    if (lastPanel < 15)
+                    foreach (DataRow itemRow in itemRows)//Common.DataReturn("SELECT Client, HrsBudgeted, HoursToCompletion, WIPHours, ScheduleDate FROM MasterTasks WHERE isClosed = false AND employee = '" + (currentEmployeeId == 0 ? ((InNumbers.Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId) + "'  ORDER BY ScheduleDate").Rows)
                     {
-
-                        int hoursToShow = Convert.ToInt32(itemRow["HrsBudgeted"]) - Convert.ToInt32(itemRow["WIPHours"] == DBNull.Value ? "0" : itemRow["WIPHours"]);
-
-                        if (hoursToShow <= 0 && Convert.ToInt32(itemRow["HoursToCompletion"] == DBNull.Value ? "0" : itemRow["HoursToCompletion"]) == 0)
-                            hoursToShow = 0;
-
-                        bool skippedPanel = false;
-                        for (int i = 0; i < hoursToShow; i++)
+                        if (lastPanel < 15)
                         {
-                            //if (skippedPanel)
-                            //{
-                            //    i--;
-                            //}
 
-                            if (panelToDateUpdated.Count > 0 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':').Length > 1 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':')[1] == "Off")
+                            int hoursToShow = Convert.ToInt32(itemRow["HrsBudgeted"]) - Convert.ToInt32(itemRow["WIPHours"] == DBNull.Value ? "0" : itemRow["WIPHours"]);
+
+                            if (hoursToShow <= 0 && Convert.ToInt32(itemRow["HoursToCompletion"] == DBNull.Value ? "0" : itemRow["HoursToCompletion"]) == 0)
+                                hoursToShow = 0;
+
+                            bool skippedPanel = false;
+                            for (int i = 0; i < hoursToShow; i++)
                             {
-                                for (int k = 1; k < 8; k++)
+                                //if (skippedPanel)
+                                //{
+                                //    i--;
+                                //}
+
+                                if (panelToDateUpdated.Count > 0 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':').Length > 1 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':')[1] == "Off")
                                 {
-                                    Control[] myControlDayOff = this.Controls.Find("panel" + lastPanel + "_hour" + k, true);
-                                    myControlDayOff[0].Text = "Day Off";
-                                }
-                                lastPanel++;
-                                skippedPanel = true;
-                                i--;
-                            }
-                            else
-                            {
-                                skippedPanel = false;
-                            }
-
-
-                            if (!skippedPanel)
-                            {
-                                if (lastHour == 8)
-                                {
-                                    lastHour = 1;
-                                    lastPanel++;
-
-                                    if (panelToDateUpdated.Count > 0 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':').Length > 1 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':')[1] == "Off")
+                                    for (int k = 1; k < 8; k++)
                                     {
-                                        for (int l = 1; l < 8; l++)
-                                        {
-                                            Control[] myControlDayOff = this.Controls.Find("panel" + lastPanel + "_hour" + l, true);
-                                            myControlDayOff[0].Text = "Day Off";
-                                        }
-
-                                        lastPanel++;
-                                        skippedPanel = true;
-                                        i--;
-
+                                        Control[] myControlDayOff = this.Controls.Find("panel" + lastPanel + "_hour" + k, true);
+                                        myControlDayOff[0].Text = "Day Off";
                                     }
-                                }
-
-                                //Check if ScheduleDate > Panel Date 
-                                DateTime scheduleDate = DateTime.Parse(itemRow["ScheduleDate"].ToString().Split(' ')[0]);
-                                DateTime currentPanelDate = DateTime.Parse(panelToDate["panel" + lastPanel].Split(' ')[0]);
-                                int result = DateTime.Compare(currentPanelDate, scheduleDate);
-
-                                if (result < 0)
-                                {
                                     lastPanel++;
                                     skippedPanel = true;
                                     i--;
                                 }
+                                else
+                                {
+                                    skippedPanel = false;
+                                }
+
 
                                 if (!skippedPanel)
                                 {
-                                    Control[] myControl = this.Controls.Find("panel" + lastPanel + "_hour" + lastHour, true);
-
-                                    if (myControl.Length > 0)
+                                    if (lastHour == 8)
                                     {
-                                        myControl[0].Text = itemRow["Client"].ToString();
-                                        lastHour++;
+                                        lastHour = 1;
+                                        lastPanel++;
+
+                                        if (panelToDateUpdated.Count > 0 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':').Length > 1 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':')[1] == "Off")
+                                        {
+                                            for (int l = 1; l < 8; l++)
+                                            {
+                                                Control[] myControlDayOff = this.Controls.Find("panel" + lastPanel + "_hour" + l, true);
+                                                myControlDayOff[0].Text = "Day Off";
+                                            }
+
+                                            lastPanel++;
+                                            skippedPanel = true;
+                                            i--;
+
+                                        }
+                                    }
+
+                                    //Check if ScheduleDate > Panel Date 
+                                    DateTime scheduleDate = DateTime.Parse(itemRow["ScheduleDate"].ToString().Split(' ')[0]);
+                                    DateTime currentPanelDate = DateTime.Parse(panelToDate["panel" + lastPanel].Split(' ')[0]);
+                                    int result = DateTime.Compare(currentPanelDate, scheduleDate);
+
+                                    if (result < 0)
+                                    {
+                                        lastPanel++;
+                                        skippedPanel = true;
+                                        i--;
+                                    }
+
+                                    if (!skippedPanel)
+                                    {
+                                        Control[] myControl = this.Controls.Find("panel" + lastPanel + "_hour" + lastHour, true);
+
+                                        if (myControl.Length > 0)
+                                        {
+                                            myControl[0].Text = itemRow["Client"].ToString();
+                                            lastHour++;
+                                        }
                                     }
                                 }
                             }
                         }
+                    }
+                }
+
+                //No tasks, just put days off   
+                else
+                {
+                    while (lastPanel < 15)
+                    {
+                        if (panelToDateUpdated.Count > 0 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':').Length > 1 && panelToDateUpdated["panel" + lastPanel].Split(' ')[2].Split(':')[1] == "Off")
+                        {
+                            for (int k = 1; k < 8; k++)
+                            {
+                                Control[] myControlDayOff = this.Controls.Find("panel" + lastPanel + "_hour" + k, true);
+                                myControlDayOff[0].Text = "Day Off";
+                            }
+                            //lastPanel++;
+                        }
+                        lastPanel++;
                     }
                 }
             }
