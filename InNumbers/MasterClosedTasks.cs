@@ -89,7 +89,7 @@ namespace InNumbers
                 lblReadyFor2ndReview.Text = lblReady2ndReviewArr.Length == 3 ? lblReady2ndReviewArr[1] + "/" + lblReady2ndReviewArr[2] + "/" + lblReady2ndReviewArr[0] : itemRow["For2Review"].ToString().Split(' ')[0];
 
                 //Days to due date
-                TimeSpan ts = Convert.ToDateTime(itemRow["DateDue"]) - DateTime.Today;
+                //TimeSpan ts = Convert.ToDateTime(itemRow["DateDue"]) - DateTime.Today;
                 //if (ts.Days > 15)
                 //    lblDaysToDueDate.ForeColor = Color.Green;
                 //else if (ts.Days > 6 && ts.Days < 15)
@@ -99,7 +99,7 @@ namespace InNumbers
                 //else
                 //    Blink();
 
-                lblDaysToDueDate.Text = ts.Days.ToString();
+                //lblDaysToDueDate.Text = ts.Days.ToString();
                 //Ask Partner
                 lblAskPartnerValue.Text = itemRow["AskPartner"].ToString() == "False" ? "No" : "Yes";
                 //Note to partner
@@ -129,7 +129,10 @@ namespace InNumbers
         {
             this.Close();
         }
-    
+
+ 
+
+
 
         //public class ComboboxItem
         //{

@@ -129,7 +129,7 @@ namespace InNumbers
                 }
 
                 //Check if any tasks
-                DataRowCollection itemRows = Common.DataReturn("SELECT Client, HrsBudgeted, HoursToCompletion, WIPHours, ScheduleDate FROM MasterTasks WHERE isClosed = false AND employee = '" + (currentEmployeeId == 0 ? ((Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId) + "'  ORDER BY ScheduleDate").Rows;
+                DataRowCollection itemRows = Common.DataReturn("SELECT Client, HrsBudgeted, HoursToCompletion, WIPHours, ScheduleDate FROM MasterTasks WHERE isClosed = False AND employee = '" + (currentEmployeeId == 0 ? ((Common.ComboboxItem)cmbEmployee.SelectedItem).Value : currentEmployeeId) + "'  ORDER BY ScheduleDate").Rows;
                 //Any tasks
                 if (itemRows.Count > 0)
                 {

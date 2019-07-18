@@ -20,8 +20,33 @@ namespace InNumbers
 
         private void BtnSignIn_Click(object sender, EventArgs e)
         {
+
+           // Console.WriteLine(MinimumNumberOfCoins(0.60));
             DoLogin();
         }
+
+        //private int MinimumNumberOfCoins(double changeToGive)
+        //{
+        //    int minimumNumberOfCoins = 0;
+        //    double remainAmount = 0;
+
+        //    int quoter = (int)(changeToGive / 0.25);
+        //    remainAmount = Math.Round(changeToGive % 0.25, 2);
+
+        //    int dimes = (int)(remainAmount / 0.1);
+        //    remainAmount = Math.Round(remainAmount % 0.1, 2); 
+ 
+        //    int nickels = (int)(remainAmount / 0.05);
+        //    remainAmount = Math.Round(remainAmount % 0.05, 2); 
+
+        //    int pennies = (int)(remainAmount / 0.01);
+        //    remainAmount = Math.Round(remainAmount % 0.01, 2);
+
+        //    minimumNumberOfCoins = quoter + dimes + nickels + pennies;
+
+        //    return minimumNumberOfCoins;
+
+        //}
 
         private void DoLogin()
         {

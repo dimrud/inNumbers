@@ -186,7 +186,7 @@
             this.panel1.Controls.Add(this.panel1_hour1);
             this.panel1.Location = new System.Drawing.Point(12, 104);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(251, 215);
+            this.panel1.Size = new System.Drawing.Size(251, 226);
             this.panel1.TabIndex = 0;
             // 
             // panel1_hour7
@@ -281,7 +281,7 @@
             this.panel2.Controls.Add(this.panel2_hour4);
             this.panel2.Location = new System.Drawing.Point(269, 104);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(251, 215);
+            this.panel2.Size = new System.Drawing.Size(251, 226);
             this.panel2.TabIndex = 1;
             // 
             // panel2_hour7
@@ -366,7 +366,7 @@
             this.panel3.Controls.Add(this.panel3_hour5);
             this.panel3.Location = new System.Drawing.Point(526, 104);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(251, 215);
+            this.panel3.Size = new System.Drawing.Size(251, 226);
             this.panel3.TabIndex = 2;
             // 
             // panel3_hour7
@@ -451,7 +451,7 @@
             this.panel4.Controls.Add(this.panel4_hour6);
             this.panel4.Location = new System.Drawing.Point(783, 104);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(251, 215);
+            this.panel4.Size = new System.Drawing.Size(251, 226);
             this.panel4.TabIndex = 3;
             // 
             // panel4_hour7
@@ -536,7 +536,7 @@
             this.panel5.Controls.Add(this.panel5_hour4);
             this.panel5.Location = new System.Drawing.Point(1040, 104);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(251, 215);
+            this.panel5.Size = new System.Drawing.Size(251, 226);
             this.panel5.TabIndex = 4;
             // 
             // panel5_hour7
@@ -621,7 +621,7 @@
             this.panel6.Controls.Add(this.panel6_hour1);
             this.panel6.Location = new System.Drawing.Point(1297, 104);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(251, 215);
+            this.panel6.Size = new System.Drawing.Size(251, 226);
             this.panel6.TabIndex = 5;
             // 
             // panel6_hour7
@@ -756,7 +756,7 @@
             this.panel7.Controls.Add(this.panel7_hour6);
             this.panel7.Location = new System.Drawing.Point(1554, 104);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(251, 215);
+            this.panel7.Size = new System.Drawing.Size(251, 226);
             this.panel7.TabIndex = 6;
             // 
             // panel7_hour7
@@ -861,7 +861,7 @@
             this.panel8.Controls.Add(this.panel8_hour1);
             this.panel8.Location = new System.Drawing.Point(12, 391);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(251, 215);
+            this.panel8.Size = new System.Drawing.Size(251, 226);
             this.panel8.TabIndex = 12;
             // 
             // panel8_hour7
@@ -956,7 +956,7 @@
             this.panel9.Controls.Add(this.panel9_hour1);
             this.panel9.Location = new System.Drawing.Point(269, 391);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(251, 215);
+            this.panel9.Size = new System.Drawing.Size(251, 226);
             this.panel9.TabIndex = 14;
             // 
             // panel9_hour7
@@ -1051,7 +1051,7 @@
             this.panel10.Controls.Add(this.panel10_hour1);
             this.panel10.Location = new System.Drawing.Point(526, 391);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(251, 215);
+            this.panel10.Size = new System.Drawing.Size(251, 226);
             this.panel10.TabIndex = 16;
             // 
             // panel10_hour7
@@ -1146,7 +1146,7 @@
             this.panel11.Controls.Add(this.panel11_hour1);
             this.panel11.Location = new System.Drawing.Point(783, 391);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(251, 215);
+            this.panel11.Size = new System.Drawing.Size(251, 226);
             this.panel11.TabIndex = 18;
             // 
             // panel11_hour7
@@ -1241,7 +1241,7 @@
             this.panel12.Controls.Add(this.panel12_hour4);
             this.panel12.Location = new System.Drawing.Point(1040, 391);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(251, 215);
+            this.panel12.Size = new System.Drawing.Size(251, 226);
             this.panel12.TabIndex = 20;
             // 
             // panel12_hour7
@@ -1336,7 +1336,7 @@
             this.panel13.Controls.Add(this.panel13_hour4);
             this.panel13.Location = new System.Drawing.Point(1297, 391);
             this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(251, 215);
+            this.panel13.Size = new System.Drawing.Size(251, 226);
             this.panel13.TabIndex = 22;
             // 
             // panel13_hour7
@@ -1431,7 +1431,7 @@
             this.panel14.Controls.Add(this.panel14_hour4);
             this.panel14.Location = new System.Drawing.Point(1554, 391);
             this.panel14.Name = "panel14";
-            this.panel14.Size = new System.Drawing.Size(251, 215);
+            this.panel14.Size = new System.Drawing.Size(251, 226);
             this.panel14.TabIndex = 24;
             // 
             // panel14_hour7
@@ -1526,7 +1526,7 @@
             // 
             // btnCancelTask
             // 
-            this.btnCancelTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancelTask.Location = new System.Drawing.Point(833, 642);
             this.btnCancelTask.Name = "btnCancelTask";
             this.btnCancelTask.Size = new System.Drawing.Size(120, 40);

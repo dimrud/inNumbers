@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace InNumbers
@@ -11,15 +12,34 @@ namespace InNumbers
         {
             InitializeComponent();
             this.Text = Program.currentUserFullName + " Form";
-
+            dgwEmployeeTasks.SelectionChanged += DataGridView_SelectionChanged;
             LoadData();
+        }
+
+        private void DataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgwEmployeeTasks.SelectedRows.Count != 0)
+            {
+                //MessageBox.Show(dgwEmployeeTasks.SelectedRows[0].Cells[1].Value.ToString());
+                // foreach (DataRow itemRow in Common.DataReturn("SELECT * FROM MasterTasks WHERE id = " + dgwEmployeeTasks.SelectedRows[0].Cells[1].Value.ToString()).Rows)
+                // {
+                if (dgwEmployeeTasks.SelectedRows[0].Cells[9].Value.ToString() == Program.currentUserId && dgwEmployeeTasks.SelectedRows[0].Cells[10].Value.ToString() != Program.currentUserId)
+                {
+                    btnCloseTask.Enabled = true;
+                }
+                else
+                {
+                    btnCloseTask.Enabled = false;
+                }
+                //  }
+            }
         }
 
         public void LoadData()
         {
             dgwEmployeeTasks.Rows.Clear();
 
-            dgwEmployeeTasks.ColumnCount = 9;
+            dgwEmployeeTasks.ColumnCount = 11;
             dgwEmployeeTasks.Columns[0].Name = "Manager";
             dgwEmployeeTasks.Columns[1].Name = "id";
             dgwEmployeeTasks.Columns[2].Name = "Client";
@@ -29,13 +49,17 @@ namespace InNumbers
             dgwEmployeeTasks.Columns[6].Name = "Day's To Due Date";
             dgwEmployeeTasks.Columns[7].Name = "Hours Budgeted";
             dgwEmployeeTasks.Columns[8].Name = "Variance";
+            dgwEmployeeTasks.Columns[9].Name = "ManagerId";
+            dgwEmployeeTasks.Columns[10].Name = "EmployeeId";
             dgwEmployeeTasks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             dgwEmployeeTasks.Columns[1].Visible = false;
+            dgwEmployeeTasks.Columns[9].Visible = false;
+            dgwEmployeeTasks.Columns[10].Visible = false;
             #region SELECT FROM FILE
             try
             {
-                foreach (DataRow itemRow in Common.DataReturn("SELECT * FROM MasterTasks WHERE isClosed = false AND employee = '" + Program.currentUserId + "' OR (ManagerId = " + Program.currentUserId + " AND ForReview IS NOT NULL)ORDER BY ScheduleDate").Rows)
+                foreach (DataRow itemRow in Common.DataReturn("SELECT * FROM MasterTasks WHERE isClosed = False AND (employee = '" + Program.currentUserId + "' OR (ManagerId = " + Program.currentUserId + " AND ForReview IS NOT NULL) )  ORDER BY ScheduleDate").Rows)
                 {
                     if (itemRow["ManagerId"].ToString() != Program.currentUserId)
                     {
@@ -59,7 +83,9 @@ namespace InNumbers
                                                   dateDueArr.Length == 3 ? dateDueArr[1] + "/" + dateDueArr[2] + "/" + dateDueArr[0] : itemRow["DateDue"].ToString().Split(' ')[0],
                                                   ts.Days.ToString(),
                                                   itemRow["HrsBudgeted"].ToString(),
-                                                  variance.ToString()
+                                                  variance.ToString(),
+                                                  itemRow["ManagerId"].ToString(),
+                                                  itemRow["Employee"].ToString()
                     };
                     dgwEmployeeTasks.Rows.Add(row);
                 }
@@ -72,17 +98,21 @@ namespace InNumbers
                 foreach (DataGridViewRow row in dgwEmployeeTasks.Rows)
                 {
                     //Days to due date
-                    TimeSpan ts = Convert.ToDateTime(row.Cells[4].Value) - DateTime.Today;
+                    TimeSpan ts = Convert.ToDateTime(row.Cells[5].Value) - DateTime.Today;
                     //if (ts.Days > 15)
                     //    row.DefaultCellStyle.BackColor = System.Drawing.Color.Green;
-                    if (ts.Days > 6 && ts.Days < 15)
-                        row.DefaultCellStyle.BackColor = System.Drawing.Color.Yellow;
-                    else if (ts.Days >= 2 && ts.Days < 6)
-                        row.DefaultCellStyle.BackColor = System.Drawing.Color.Red;
-                    else if (ts.Days < 2)
+                    if (ts.Days < 0)
                         row.DefaultCellStyle.BackColor = System.Drawing.Color.Orange;
+                    else
+                    {
+                        if (Math.Abs(ts.Days) > 6 && Math.Abs(ts.Days) < 15)
+                            row.DefaultCellStyle.BackColor = System.Drawing.Color.Yellow;
+                        else if (Math.Abs(ts.Days) >= 2 && Math.Abs(ts.Days) <= 6)
+                            row.DefaultCellStyle.BackColor = System.Drawing.Color.Red;
+                        else if (Math.Abs(ts.Days) < 2)
+                            row.DefaultCellStyle.BackColor = System.Drawing.Color.Orange;
+                    }
                 }
-
             }
             catch (Exception e)
             {
@@ -147,7 +177,7 @@ namespace InNumbers
                 }
                 else
                 {
-                    if (dgwEmployeeTasks.SelectedRows[0].Cells[0].Value.ToString() == "Y")
+                    if (dgwEmployeeTasks.SelectedRows[0].Cells[0].Value.ToString() == "Y" && dgwEmployeeTasks.SelectedRows[0].Cells[10].Value.ToString() != Program.currentUserId)
                     {
                         MessageBox.Show("Can't open task for edit", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
@@ -184,6 +214,37 @@ namespace InNumbers
         private void BtnRefresh_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void BtnCloseTask_Click(object sender, EventArgs e)
+        {
+            if (dgwEmployeeTasks.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Please select any task to close", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                if (dgwEmployeeTasks.SelectedRows.Count > 1)
+                {
+                    MessageBox.Show("Please select only one row to edit", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+
+                    var confirmResult = MessageBox.Show("This task will be closed",
+                                                     "Confirm Closing Task!!",
+                                                      MessageBoxButtons.YesNo);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        OleDbCommand cmd = null;
+                        cmd = new OleDbCommand("UPDATE MasterTasks SET isClosed = True" +
+                                               " WHERE id = " + dgwEmployeeTasks.SelectedRows[0].Cells[1].Value, Common.FileConnection);
+                        cmd.ExecuteNonQuery();
+                        ReloadData();
+                    }
+
+                }
+            }
         }
     }
 }

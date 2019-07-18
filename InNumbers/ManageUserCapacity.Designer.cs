@@ -36,6 +36,7 @@
             this.btnDeleteCapacity = new System.Windows.Forms.Button();
             this.btnAddCapacity = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgwDaysOff)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,7 +62,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(764, 97);
+            this.monthCalendar1.Location = new System.Drawing.Point(25, 144);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 2;
             // 
@@ -69,18 +70,18 @@
             // 
             this.dgwDaysOff.AllowUserToAddRows = false;
             this.dgwDaysOff.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwDaysOff.Location = new System.Drawing.Point(30, 139);
+            this.dgwDaysOff.Location = new System.Drawing.Point(460, 144);
             this.dgwDaysOff.Name = "dgwDaysOff";
             this.dgwDaysOff.ReadOnly = true;
             this.dgwDaysOff.RowTemplate.Height = 28;
-            this.dgwDaysOff.Size = new System.Drawing.Size(565, 226);
+            this.dgwDaysOff.Size = new System.Drawing.Size(378, 252);
             this.dgwDaysOff.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(25, 107);
+            this.label2.Location = new System.Drawing.Point(460, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(220, 29);
             this.label2.TabIndex = 4;
@@ -89,7 +90,7 @@
             // btnDeleteCapacity
             // 
             this.btnDeleteCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteCapacity.Location = new System.Drawing.Point(30, 383);
+            this.btnDeleteCapacity.Location = new System.Drawing.Point(460, 408);
             this.btnDeleteCapacity.Name = "btnDeleteCapacity";
             this.btnDeleteCapacity.Size = new System.Drawing.Size(130, 40);
             this.btnDeleteCapacity.TabIndex = 5;
@@ -100,7 +101,7 @@
             // btnAddCapacity
             // 
             this.btnAddCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddCapacity.Location = new System.Drawing.Point(764, 382);
+            this.btnAddCapacity.Location = new System.Drawing.Point(25, 408);
             this.btnAddCapacity.Name = "btnAddCapacity";
             this.btnAddCapacity.Size = new System.Drawing.Size(130, 40);
             this.btnAddCapacity.TabIndex = 6;
@@ -112,17 +113,29 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(760, 59);
+            this.label3.Location = new System.Drawing.Point(25, 106);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(289, 29);
             this.label3.TabIndex = 7;
             this.label3.Text = "Select non working dates:";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(976, 407);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(130, 40);
+            this.btnClose.TabIndex = 8;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // ManageUserCapacity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1118, 459);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnAddCapacity);
             this.Controls.Add(this.btnDeleteCapacity);
@@ -151,5 +164,6 @@
         private System.Windows.Forms.Button btnDeleteCapacity;
         private System.Windows.Forms.Button btnAddCapacity;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnClose;
     }
 }

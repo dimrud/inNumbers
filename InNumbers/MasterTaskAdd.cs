@@ -35,6 +35,9 @@ namespace InNumbers
             cmbPartner.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTask.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbEmployee.DropDownStyle = ComboBoxStyle.DropDownList;
+
+            dtpDateIn.Format = dtpScheduleDate.Format = dtpDateDue.Format = DateTimePickerFormat.Custom;
+            dtpDateIn.CustomFormat = dtpScheduleDate.CustomFormat = dtpDateDue.CustomFormat = "dd-MM-yyyy";
         }
 
         private void OnlyNumbers(object sender, KeyPressEventArgs e)

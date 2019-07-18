@@ -26,7 +26,7 @@ namespace InNumbers
                 if (Transaction != null) myDataAdapter.SelectCommand.Transaction = Transaction;
                 myDataAdapter.Fill(myDataSet, "Data");
             }
-            catch (Exception e)
+            catch// (Exception e)
             {
                 // ErrorHandler.ProcessError(e);
             }
@@ -54,7 +54,7 @@ namespace InNumbers
                 if (SQLParams != null && SQLParams.Length > 0) myDataAdapter.SelectCommand.Parameters.AddRange(SQLParams);
                 myDataAdapter.Fill(myDataSet, "Data");
             }
-            catch (Exception e)
+            catch// (Exception e)
             {
                 //ErrorHandler.ProcessError(e);
             }
@@ -101,7 +101,7 @@ namespace InNumbers
                 if (Transaction != null) Exec.Transaction = Transaction;
                 Affected = Exec.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch //(Exception e)
             {
                 // ErrorHandler.ProcessError(e);
             }
@@ -126,7 +126,7 @@ namespace InNumbers
                 if (Transaction != null) myDataAdapter.SelectCommand.Transaction = Transaction;
                 myDataAdapter.Fill(myDataSet, "Data");
             }
-            catch (Exception e)
+            catch //(Exception e)
             {
                 // ErrorHandler.ProcessError(e);
             }
@@ -147,7 +147,7 @@ namespace InNumbers
                 if (SQLParams != null && SQLParams.Length > 0) myDataAdapter.SelectCommand.Parameters.AddRange(SQLParams);
                 myDataAdapter.Fill(myDataSet, "Data");
             }
-            catch (Exception e)
+            catch //(Exception e)
             {
                 // ErrorHandler.ProcessError(e);
             }
@@ -188,7 +188,7 @@ namespace InNumbers
                 if (Transaction != null) Exec.Transaction = Transaction;
                 Affected = Exec.ExecuteNonQuery();
             }
-            catch (Exception e)
+            catch //(Exception e)
             {
                 //ErrorHandler.ProcessError(e);
             }
@@ -383,9 +383,11 @@ namespace InNumbers
 
             Open();
 
-            cmd = new SqlCommand(procName, con);
-            cmd.CommandTimeout = 1500;
-            cmd.CommandType = CommandType.StoredProcedure;
+            cmd = new SqlCommand(procName, con)
+            {
+                CommandTimeout = 1500,
+                CommandType = CommandType.StoredProcedure
+            };
 
             if (prams != null)
                 foreach (SqlParameter parameter in prams)

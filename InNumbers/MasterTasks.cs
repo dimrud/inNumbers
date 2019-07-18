@@ -26,6 +26,8 @@ namespace InNumbers
             txtHoursBudgeted.KeyPress += new KeyPressEventHandler(Common.OnlyNumbers);
             txtAddTime.KeyPress += new KeyPressEventHandler(Common.OnlyNumbers);
             _parent = parent;
+            dtpScheduleDate.Format = dtpDueDate.Format = DateTimePickerFormat.Custom;
+            dtpScheduleDate.CustomFormat = dtpDueDate.CustomFormat = "dd-MM-yyyy";
         }
 
         private void LoadTask(int id)
@@ -79,6 +81,7 @@ namespace InNumbers
 
 
                 txtHoursBudgeted.Text = itemRow["HrsBudgeted"].ToString();
+                dtpDueDate.Value = Convert.ToDateTime(itemRow["DateDue"]);
                 dtpScheduleDate.Value = Convert.ToDateTime(itemRow["ScheduleDate"]);
                 //dtpRevisionDate.Value = Convert.ToDateTime(itemRow["RevisionDate"]);
 
@@ -115,11 +118,11 @@ namespace InNumbers
 
                 //Days to due date
                 TimeSpan ts = Convert.ToDateTime(itemRow["DateDue"]) - DateTime.Today;
-                if (ts.Days > 15)
+                if (Math.Abs(ts.Days) >= 15)
                     lblDaysToDueDate.BackColor = Color.Green;
-                else if (ts.Days > 6 && ts.Days < 15)
+                else if (Math.Abs(ts.Days) > 6 && Math.Abs(ts.Days) < 15)
                     lblDaysToDueDate.BackColor = Color.Yellow;
-                else if (ts.Days > 2 && ts.Days < 5)
+                else if (ts.Days >= 2 && ts.Days <= 6)
                     lblDaysToDueDate.BackColor = Color.Red;
                 else
                     Blink();
@@ -187,6 +190,7 @@ namespace InNumbers
                 else
                 {
                     cmd = new OleDbCommand("UPDATE MasterTasks SET HrsBudgeted = " + txtHoursBudgeted.Text +
+                                            ",DateDue = '" + Convert.ToDateTime(dtpDueDate.Value) + "'" +
                                             ",ScheduleDate = '" + Convert.ToDateTime(dtpScheduleDate.Value) + "'" +
                                             (txtRevisionDate.Text != "" ? ",RevisionDate = '" + Convert.ToDateTime(txtRevisionDate.Text) + "'" : "") +
                                             (txtAddTime.Text != "" ? ",AdditionalTime = " + txtAddTime.Text : "") +

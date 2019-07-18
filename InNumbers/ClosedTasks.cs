@@ -33,7 +33,7 @@ namespace InNumbers
             #region SELECT FROM FILE
             try
             {
-                foreach (DataRow itemRow in Common.DataReturn("SELECT * FROM MasterTasks WHERE isClosed = true ORDER BY ScheduleDate").Rows)
+                foreach (DataRow itemRow in Common.DataReturn("SELECT * FROM MasterTasks WHERE isClosed = True ORDER BY ScheduleDate").Rows)
                 {
                     string[] dateDueArr = itemRow["DateDue"].ToString().Split(' ')[0].ToString().Split('-');
                     string[] scheduleDateArr = itemRow["ScheduleDate"].ToString().Split(' ')[0].ToString().Split('-');

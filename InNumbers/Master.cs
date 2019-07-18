@@ -47,7 +47,7 @@ namespace InNumbers
             #region SELECT FROM FILE
             try
             {
-                string aa = "SELECT Id, Client, Employee, Task, HrsBudgeted, HoursToCompletion, DateDue, ScheduleDate, ForReview, AskPartner, WIPHours, For2Review, Partner FROM MasterTasks WHERE isClosed = false " + (selectedPartnerIndex == 0 ? "" : " AND Partner = '" + selectedPartnerIndex + "'") + "  ORDER BY ScheduleDate";
+                string aa = "SELECT Id, Client, Employee, Task, HrsBudgeted, HoursToCompletion, DateDue, ScheduleDate, ForReview, AskPartner, WIPHours, For2Review, Partner FROM MasterTasks WHERE isClosed = False " + (selectedPartnerIndex == 0 ? "" : " AND Partner = '" + selectedPartnerIndex + "'") + "  ORDER BY ScheduleDate";
                 foreach (DataRow itemRow in Common.DataReturn(aa).Rows)
                 {
                     string employeeName = string.Empty;
@@ -92,14 +92,17 @@ namespace InNumbers
                 {
                     //Days to due date
                     TimeSpan ts = Convert.ToDateTime(row.Cells[5].Value) - DateTime.Today;
-                    //if (ts.Days > 15)
-                    //    row.DefaultCellStyle.BackColor = System.Drawing.Color.Green;
-                    if (ts.Days > 6 && ts.Days < 15)
-                        row.DefaultCellStyle.BackColor = System.Drawing.Color.Yellow;
-                    else if (ts.Days >= 2 && ts.Days < 6)
-                        row.DefaultCellStyle.BackColor = System.Drawing.Color.Red;
-                    else if (ts.Days < 2)
+                    if (ts.Days < 0)
                         row.DefaultCellStyle.BackColor = System.Drawing.Color.Orange;
+                    else
+                    {
+                        if (Math.Abs(ts.Days) > 6 && Math.Abs(ts.Days) < 15)
+                            row.DefaultCellStyle.BackColor = System.Drawing.Color.Yellow;
+                        else if (Math.Abs(ts.Days) >= 2 && Math.Abs(ts.Days) <= 6)
+                            row.DefaultCellStyle.BackColor = System.Drawing.Color.Red;
+                        else if (Math.Abs(ts.Days) < 2)
+                            row.DefaultCellStyle.BackColor = System.Drawing.Color.Orange;
+                    }
                 }
             }
             catch (Exception e)
@@ -150,7 +153,7 @@ namespace InNumbers
                                      MessageBoxButtons.YesNo);
                     if (confirmResult == DialogResult.Yes)
                     {
-                        OleDbCommand cmd = new OleDbCommand("UPDATE MasterTasks SET isClosed = 1 WHERE id = " + dgwMasterTasks.SelectedRows[0].Cells[0].Value, Common.FileConnection);
+                        OleDbCommand cmd = new OleDbCommand("UPDATE MasterTasks SET isClosed = True WHERE id = " + dgwMasterTasks.SelectedRows[0].Cells[0].Value, Common.FileConnection);
                         cmd.ExecuteNonQuery();
                         ReloadData();
                     }

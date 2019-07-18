@@ -46,7 +46,7 @@
             // 
             // btnShow
             // 
-            this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShow.Location = new System.Drawing.Point(12, 645);
             this.btnShow.Name = "btnShow";
             this.btnShow.Size = new System.Drawing.Size(130, 40);

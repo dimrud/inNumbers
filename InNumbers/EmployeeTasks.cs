@@ -28,6 +28,7 @@ namespace InNumbers
 
             _parent = parent;
             cmbAskPartner.DataSource = Common.AskPartner();
+            lblVariance.Text = "";
             LoadTask(taskId);
         }
 
@@ -60,8 +61,6 @@ namespace InNumbers
                 string[] lblRevisionDateArr = itemRow["RevisionDate"].ToString().Split(' ')[0].ToString().Split('-');
                 lblRevisionDate.Text = lblRevisionDateArr.Length == 3 ? lblRevisionDateArr[1] + "/" + lblRevisionDateArr[2] + "/" + lblRevisionDateArr[0] : itemRow["RevisionDate"].ToString().Split(' ')[0];
 
-
-
                 lblHrsBudgetedValue.Text = itemRow["HrsBudgeted"].ToString();
                 lblAdditionalTime.Text = itemRow["AdditionalTime"].ToString();
 
@@ -81,13 +80,14 @@ namespace InNumbers
 
                 txtHoursToComplete.Text = itemRow["HoursToCompletion"].ToString().Split(' ')[0].Replace('-', '/');
 
-                //Days to due date
+                //Days to due date          
+
                 TimeSpan ts = Convert.ToDateTime(itemRow["DateDue"]) - DateTime.Today;
-                if (ts.Days > 15)
+                if (Math.Abs(ts.Days) >= 15)
                     lblDaysToDueDate.BackColor = Color.Green;
-                else if (ts.Days > 6 && ts.Days < 15)
+                else if (Math.Abs(ts.Days) > 6 && Math.Abs(ts.Days) < 15)
                     lblDaysToDueDate.BackColor = Color.Yellow;
-                else if (ts.Days > 2 && ts.Days < 5)
+                else if (ts.Days >= 2 && ts.Days <= 6)
                     lblDaysToDueDate.BackColor = Color.Red;
                 else
                     Blink();
@@ -123,7 +123,6 @@ namespace InNumbers
             OleDbCommand cmd = null;
             try
             {
-
                 string errorMessage = string.Empty;
                 if (string.IsNullOrEmpty(txtWIPHoursValue.Text))
                 {
@@ -134,7 +133,6 @@ namespace InNumbers
                 {
                     errorMessage += "Hours To Complete field can't be empty" + Environment.NewLine;
                 }
-
 
                 if (errorMessage.Length > 0)
                 {
@@ -169,7 +167,6 @@ namespace InNumbers
                     _parent.ReloadData();
                     this.Close();
                 }
-
             }
             catch (Exception exp) { string m = exp.Message; }
             finally
@@ -216,7 +213,6 @@ namespace InNumbers
             CultureInfo ci = new CultureInfo("en-IE");
 
             if (!DateTime.TryParseExact(txtOSRequestSent.Text, "MM/dd/yyyy", ci, DateTimeStyles.None, out DateTime rs))
-
             {
                 MessageBox.Show("Follow UP date should be in format MM/DD/YYYY", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Cancel = true;
@@ -253,7 +249,6 @@ namespace InNumbers
             CultureInfo ci = new CultureInfo("en-IE");
 
             if (!DateTime.TryParseExact(txtReady2ndReview.Text, "MM/dd/yyyy", ci, DateTimeStyles.None, out DateTime rs))
-
             {
                 MessageBox.Show("Ready for 2nd review date should be in format MM/DD/YYYY", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Cancel = true;
