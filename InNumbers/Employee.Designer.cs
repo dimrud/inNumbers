@@ -37,6 +37,8 @@
             this.btnCalendar = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.btnCloseTask = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalRows = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgwEmployeeTasks)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +85,7 @@
             // btnEdit
             // 
             this.btnEdit.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(12, 544);
+            this.btnEdit.Location = new System.Drawing.Point(10, 544);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(170, 40);
             this.btnEdit.TabIndex = 7;
@@ -126,7 +128,6 @@
             // 
             // btnCloseTask
             // 
-            this.btnCloseTask.Enabled = false;
             this.btnCloseTask.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseTask.Location = new System.Drawing.Point(198, 544);
             this.btnCloseTask.Name = "btnCloseTask";
@@ -136,12 +137,34 @@
             this.btnCloseTask.UseVisualStyleBackColor = true;
             this.btnCloseTask.Click += new System.EventHandler(this.BtnCloseTask_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(475, 549);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(152, 29);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Total Rows:";
+            // 
+            // lblTotalRows
+            // 
+            this.lblTotalRows.AutoSize = true;
+            this.lblTotalRows.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalRows.Location = new System.Drawing.Point(633, 549);
+            this.lblTotalRows.Name = "lblTotalRows";
+            this.lblTotalRows.Size = new System.Drawing.Size(85, 29);
+            this.lblTotalRows.TabIndex = 15;
+            this.lblTotalRows.Text = "label3";
+            // 
             // Employee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1565, 592);
+            this.Controls.Add(this.lblTotalRows);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnCloseTask);
             this.Controls.Add(this.btnRefresh);
             this.Controls.Add(this.btnCalendar);
@@ -175,5 +198,7 @@
         private System.Windows.Forms.Button btnCalendar;
         private System.Windows.Forms.Button btnRefresh;
         private System.Windows.Forms.Button btnCloseTask;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblTotalRows;
     }
 }

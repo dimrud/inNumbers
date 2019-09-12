@@ -240,7 +240,6 @@ namespace InNumbers
             {
                 string exp = ex.Message;
             }
-
         }
 
         private void CmbEmployee_SelectedIndexChanged(object sender, EventArgs e)

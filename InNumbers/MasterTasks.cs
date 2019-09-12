@@ -10,24 +10,47 @@ namespace InNumbers
 {
     public partial class MasterTasks : Form
     {
-        private Master _parent = null;
+        private Master _parentMaster = null;
+        private Employee _parentEmployee = null;
         private int _taskId;
         private bool isClosing;
+        private int v;
+
         //private bool _isAdd = true;
 
         public MasterTasks(Master parent, int taskId)
         {
+            InitForm(taskId, "Update Task By Partner");
+            //InitializeComponent();
+            // LoadTask(taskId);
+            //_taskId = taskId;
+            //this.Text = "Update Master Task";
+
+
+            //txtHoursBudgeted.KeyPress += new KeyPressEventHandler(Common.OnlyNumbers);
+            //txtAddTime.KeyPress += new KeyPressEventHandler(Common.OnlyNumbers);
+            _parentMaster = parent;
+            //dtpScheduleDate.Format = dtpDueDate.Format = DateTimePickerFormat.Custom;
+            //dtpScheduleDate.CustomFormat = dtpDueDate.CustomFormat = "dd-MM-yyyy";
+        }
+
+        public MasterTasks(Employee parent, int taskId)
+        {
+            InitForm(taskId, "Update Task By Manager");
+            _parentEmployee = parent;
+        }
+
+        private void InitForm(int taskId, string formTitle)
+        {
             InitializeComponent();
-            LoadTask(taskId);
             _taskId = taskId;
-            this.Text = "Update Master Task";
-
-
+            LoadTask(taskId);
+            this.Text = formTitle;
             txtHoursBudgeted.KeyPress += new KeyPressEventHandler(Common.OnlyNumbers);
             txtAddTime.KeyPress += new KeyPressEventHandler(Common.OnlyNumbers);
-            _parent = parent;
             dtpScheduleDate.Format = dtpDueDate.Format = DateTimePickerFormat.Custom;
             dtpScheduleDate.CustomFormat = dtpDueDate.CustomFormat = "dd-MM-yyyy";
+
         }
 
         private void LoadTask(int id)
@@ -168,7 +191,14 @@ namespace InNumbers
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            _parent.ReloadData();
+            if(_parentMaster != null)
+            { 
+                _parentMaster.ReloadData();
+            }
+            else
+            {
+                _parentEmployee.ReloadData();
+            }
             this.Close();
         }
 
@@ -199,7 +229,14 @@ namespace InNumbers
                                             ",ManagerId = " + ((InNumbers.Common.ComboboxItem)cmbManager.SelectedItem).Value +
                                             " WHERE id = " + _taskId, Common.FileConnection);
                     cmd.ExecuteNonQuery();
-                    _parent.ReloadData();
+                    if (_parentMaster != null)
+                    {
+                        _parentMaster.ReloadData();
+                    }
+                    else
+                    {
+                        _parentEmployee.ReloadData();
+                    }
                     this.Close();
                 }
 

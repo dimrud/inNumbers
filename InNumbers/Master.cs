@@ -24,7 +24,7 @@ namespace InNumbers
         {
             int totalRows = 0;
             dgwMasterTasks.Rows.Clear();
-            Thread.Sleep(500);
+            //Thread.Sleep(500);
 
             dgwMasterTasks.ColumnCount = 12;
             dgwMasterTasks.Columns[0].Name = "id";

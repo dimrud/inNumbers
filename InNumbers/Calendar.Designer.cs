@@ -1583,6 +1583,7 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1_title);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Calendar";
             this.Text = "Calenar";
             this.panel1.ResumeLayout(false);

@@ -97,7 +97,7 @@ namespace InNumbers
         public static ComboBox.ObjectCollection InitTasks()
         {
             ComboBox cb = new ComboBox();
-            cb.Items.Add("Please Select");
+            cb.Items.Add("Please select task");
             cb.Items.Add("Bookkeeping");
             cb.Items.Add("HST Period Return");
             cb.Items.Add("BK Review");
@@ -163,9 +163,9 @@ namespace InNumbers
         {
             ComboBox cb = new ComboBox();
             if (isIncludeFirstLine)
-                cb.Items.Add("Please select Employee");
+                cb.Items.Add("Please select employee");
 
-            foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE (Role = 'Employee' OR Role = 'Manager') AND isWorking = true").Rows)
+            foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE Role = 'Employee' AND isWorking = true ORDER BY FirstName").Rows)
             {
                 ComboboxItem item = new ComboboxItem
                 {
@@ -186,7 +186,7 @@ namespace InNumbers
             if (isIncludeFirstLine)
                 cb.Items.Add("Please select manager");
 
-            foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE Role = 'Manager' AND isWorking = true").Rows)
+            foreach (DataRow itemRow in DataReturn("SELECT * FROM LoginInfo WHERE (Role = 'Manager' OR Role = 'Partner') AND isWorking = true").Rows)
             {
                 ComboboxItem item = new ComboboxItem
                 {

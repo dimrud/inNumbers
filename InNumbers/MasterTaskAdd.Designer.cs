@@ -231,7 +231,7 @@
             // 
             this.lblCustomTaskLabel.AutoSize = true;
             this.lblCustomTaskLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCustomTaskLabel.Location = new System.Drawing.Point(112, 174);
+            this.lblCustomTaskLabel.Location = new System.Drawing.Point(106, 174);
             this.lblCustomTaskLabel.Name = "lblCustomTaskLabel";
             this.lblCustomTaskLabel.Size = new System.Drawing.Size(261, 25);
             this.lblCustomTaskLabel.TabIndex = 26;
@@ -239,10 +239,10 @@
             // 
             // txtCustomTaskDescription
             // 
-            this.txtCustomTaskDescription.Location = new System.Drawing.Point(370, 174);
+            this.txtCustomTaskDescription.Location = new System.Drawing.Point(398, 174);
             this.txtCustomTaskDescription.MaxLength = 100;
             this.txtCustomTaskDescription.Name = "txtCustomTaskDescription";
-            this.txtCustomTaskDescription.Size = new System.Drawing.Size(265, 26);
+            this.txtCustomTaskDescription.Size = new System.Drawing.Size(237, 26);
             this.txtCustomTaskDescription.TabIndex = 5;
             // 
             // label9
@@ -291,6 +291,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cmbClients);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MasterTaskAdd";
